@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Lumanosimo&family=Merienda:wght@300..900&family=Nothing+You+Could+Do&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 1px solid red;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Sorts+Mill+Goudy';
+  background-color: #ebe6e6;
+  padding: 0;
+  position: relative;
+}
+
+#container {
+  display: flex;
+  gap: 10px;
+  height: 100vh;
+  position: relative;
+}
+
+#sidebar-container {
+  padding-top: 70px;
+  min-height: 100vh;
+  background-color: rgba(51, 51, 51, 0.1);
+  backdrop-filter: blur(2rem);
+  width: 250px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  z-index: 1000;
+  position: relative;
+}
+
+#sidebar {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 20px 1.2em 1em 1em;
+  align-self: self-start;
+  font-size: 0.95rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: lightslategray transparent;
+}
+
+#sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background: lightslategray;
+  border-radius: 3px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+.test:first-of-type {
+  margin-top: 0;
+}
+
+.test > div:first-of-type {
+  margin-top: 15px;
+}
+
+.test h4 {
+  font-size: 1.1rem;
+}
+
+.test > div {
+  margin-top: 15px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 0 5px 0;
+  padding: 0.4em 0.8em 0.4em 0.5em;
+  transition: all 0.3s ease;
+}
+
+div.add-project {
+  font-size: 1rem;
+  font-family: 'lumanosimo';
+  padding: 0.2em 0.5em;
+  height: 46px;
+}
+
+.add-project span {
+  font-size: 2rem;
+}
+
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  overflow-y: auto;
+  align-items: center;
+  scrollbar-width: thin;
+  scrollbar-color: lightslategray transparent;
+}
+
+#main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+#main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#main-content::-webkit-scrollbar-thumb {
+  background: lightslategray;
+  border-radius: 3px;
+}
+
+#main-content::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+.welcome {
+  margin-left: auto;
+  font-family: 'lumanosimo';
+  font-size: 1.2rem;
+  padding-right: 10px;
+}
+
+#task-list {
+  padding: 10px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  list-style-type: none;
+  transition: all 0.3s ease;
+}
+
+.tasks-heading {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'lumanosimo';
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  color: #111;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  gap: 15px;
+}
+
+.task-checkbox-wrapper {
+  flex-shrink: 0;
+}
+
+.custom-checkbox-label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+label {
+  margin: 1rem 0 0.5rem;
+  width: 100%;
+  color: #bbb;
+  font-size: 1rem;
+  font-family: 'lumanosimo';
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.task-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+span.custom-checkbox-display {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #e6ebeb;
+  border: 1px solid #444 !important;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.task-checkbox:checked + .custom-checkbox-display {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.task-checkbox:checked + .custom-checkbox-display::after {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 7px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%) rotate(45deg);
+  opacity: 1;
+}
+
+.task-checkbox:focus + .custom-checkbox-display {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.task-body {
+  flex-grow: 1;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.add-task-btn {
+  border: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  max-width: 350px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 12px;
+  background-color: #222;
+  font-family: 'poppins';
+  color: #fff;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.add-task-btn:hover {
+  background-color: #000;
+}
