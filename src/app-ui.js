@@ -89,11 +89,17 @@ function displayTasks(tasks) {
     taskDetails.classList.add("task-details");
     taskBody.appendChild(taskDetails);
 
-    const firstPara = document.createElement("div");
+    const firstPara = document.createElement("p");
     firstPara.classList.add("first-para");
     taskDetails.appendChild(firstPara);
 
-    const secondPara = document.createElement("div");
+    const titleSpan = document.createElement("span");
+    titleSpan.textContent = `${tasks[i].title}`;
+    firstPara.appendChild(titleSpan);
+
+    const descriptionSpan = document.createElement("span");
+
+    const secondPara = document.createElement("p");
     secondPara.classList.add("second-para");
     taskDetails.appendChild(secondPara);
   }
