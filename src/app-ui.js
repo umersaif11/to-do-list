@@ -2,8 +2,7 @@
 import iconImage from "./images/folder-file-svgrepo-com.svg"
 
 function renderProjects(projects) {
-  const projectsContainer = document.querySelector("div.projects");
-  const addProject = document.querySelector(".add-project");
+  const projectsContainer = document.querySelector("ul#projects-list");
 
   for (let i = 0; i < projects.length; i++) {
     const projectDiv = document.createElement("div");
@@ -23,7 +22,7 @@ function renderProjects(projects) {
     numberOfItems.textContent = `${projects[i]["todos"].length}`;
     projectDiv.appendChild(numberOfItems);
 
-    projectsContainer.insertBefore(projectDiv, addProject);
+    projectsContainer.appendChild(projectDiv);
   }
 }
 
@@ -98,10 +97,22 @@ function displayTasks(tasks) {
     firstPara.appendChild(titleSpan);
 
     const descriptionSpan = document.createElement("span");
+    descriptionSpan.textContent = `${tasks[i].description}`;
+    firstPara.appendChild(descriptionSpan);
 
     const secondPara = document.createElement("p");
     secondPara.classList.add("second-para");
     taskDetails.appendChild(secondPara);
+
+    const prioritySpan = document.createElement("span");
+    prioritySpan.textContent = `${tasks[i].priority}`;
+    prioritySpan.classList.add("priority-pill");
+    secondPara.appendChild(prioritySpan);
+
+    const dateSpan = document.createElement("span");
+    dateSpan.textContent = `${tasks[i].priority}`;
+    dateSpan.classList.add("date-pill");
+    secondPara.appendChild(dateSpan);
   }
 }
 
