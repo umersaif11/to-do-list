@@ -1,5 +1,6 @@
 // import {projectsForTodo, toDoFunction, tasksForToDo } from "./app-logic.js";
 import iconImage from "./images/folder-file-svgrepo-com.svg"
+import { format } from "date-fns";
 
 function renderProjects(projects) {
   const projectsContainer = document.querySelector("ul#projects-list");
@@ -33,27 +34,13 @@ function getRandomGradient() {
   return `linear-gradient(${angle}deg, ${color1}, ${color2})`;
 }
 
-function listAndHeading() {
-  const mainContent = document.getElementById("main-content");
-
-  const taskList = document.createElement("ul");
-  taskList.id = "task-list";
+function displayTasks(tasks) {
+  const taskList = document.getElementById("task-list");
+  taskList.innerHTML = '';
 
   const taskHeading = document.createElement("p");
   taskHeading.id = "tasks-heading";
   taskList.appendChild(taskHeading);
-
-  const addTaskButton = document.createElement("button");
-  addTaskButton.classList.add("add-task-btn");
-  addTaskButton.setAttribute("style", "display: block;"); 
-  addTaskButton.textContent = "+ Add Tasks";
-
-  mainContent.appendChild(taskList);
-  mainContent.appendChild(addTaskButton);
-}
-
-function displayTasks(tasks) {
-  const taskList = document.getElementById("task-list");
 
   for (let i = 0; i < tasks.length; i++) {
     const taskItem = document.createElement("li");
@@ -110,10 +97,10 @@ function displayTasks(tasks) {
     secondPara.appendChild(prioritySpan);
 
     const dateSpan = document.createElement("span");
-    dateSpan.textContent = `${tasks[i].priority}`;
+    dateSpan.textContent = `${format(tasks[i].dueDate, "E, MMM MM")}`;
     dateSpan.classList.add("date-pill");
     secondPara.appendChild(dateSpan);
   }
 }
 
-export { renderProjects, listAndHeading, displayTasks };
+export { renderProjects, displayTasks };
