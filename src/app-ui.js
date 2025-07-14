@@ -40,13 +40,14 @@ function listAndHeading() {
   const taskList = document.createElement("ul");
   taskList.id = "task-list";
 
-  const addTaskButton = document.createElement("button");
-  addTaskButton.classList.add("add-task-btn");
-  div.setAttribute("style", "display: block;"); // Note: 'div' is not defined here
-  addTaskButton.textContent = "+ Add Tasks";
-
   const taskHeading = document.createElement("p");
   taskHeading.id = "tasks-heading";
+  taskList.appendChild(taskHeading);
+
+  const addTaskButton = document.createElement("button");
+  addTaskButton.classList.add("add-task-btn");
+  addTaskButton.setAttribute("style", "display: block;"); 
+  addTaskButton.textContent = "+ Add Tasks";
 
   mainContent.appendChild(taskList);
   mainContent.appendChild(addTaskButton);
@@ -83,6 +84,18 @@ function displayTasks(tasks) {
     const taskBody = document.createElement("div");
     taskBody.classList.add("task-body");
     taskItem.appendChild(taskBody);
+
+    const taskDetails = document.createElement("div");
+    taskDetails.classList.add("task-details");
+    taskBody.appendChild(taskDetails);
+
+    const firstPara = document.createElement("div");
+    firstPara.classList.add("first-para");
+    taskDetails.appendChild(firstPara);
+
+    const secondPara = document.createElement("div");
+    secondPara.classList.add("second-para");
+    taskDetails.appendChild(secondPara);
   }
 }
 
