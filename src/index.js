@@ -74,6 +74,17 @@ function main(){
         })
     }
 
+    const addTask = document.querySelector(".add-task-btn");
+    const dialogAddTask = document.querySelector("dialog#todo-dialog");
+    const submitAddTask = document.querySelector("button#add-task-btn");
+    const cancelAddTask = document.querySelector("button#cancel-task-btn");
+
+    const inputTaskTitle = document.querySelector("input#task-title-input");
+    const inputDescripTitle = document.querySelector("textarea#task-descrip-input");
+    const inputTaskDate = document.querySelector("input#task-date-input");
+    const inputTaskPriority = document.querySelector("select#priority-input");
+
+
 
     refreshUI();
 }
