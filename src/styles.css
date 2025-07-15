@@ -340,11 +340,11 @@ span.custom-checkbox-display {
   left: 0;
   width: 100vw;
   height: calc(100vh);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   transform: translateY(-100%);
 }
-#project-dialog {
+/* #project-dialog {
   margin: auto;
   padding: 1em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -352,6 +352,14 @@ span.custom-checkbox-display {
   border-radius: 10px;
   height: 160px;
   width: 280px;
+} */
+#project-dialog::backdrop {
+  background-color: darkorange;
+  background-image: linear-gradient(
+    130deg,#ff7a18,
+    #af002d 41.07%,
+    #319197 76.05%
+  );
 }
 #project-form {
   display: flex;
