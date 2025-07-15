@@ -111,16 +111,6 @@ div.add-project {
 .add-project span {
   font-size: 2rem;
 }
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: calc(100vh);
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 999;
-  transform: translateY(-100%);
-}
 #main-content {
   flex: 1;
   display: flex;
@@ -194,7 +184,7 @@ div.add-project {
   position: relative;
 }
 
-label {
+label.custom-checkbox-label {
   margin: 1rem 0 0.5rem;
   width: 100%;
   color: #bbb;
@@ -344,20 +334,15 @@ span.custom-checkbox-display {
   margin-top: 5px;
   flex-shrink: 0;
 }
-
-.add-task-btn {
-  border: none;
-  font-size: 1rem;
-  box-sizing: border-box;
-  max-width: 350px;
-  width: 100%;
-  padding: 10px 15px;
-  border-radius: 12px;
-  background-color: #222;
-  font-family: 'poppins';
-  color: #fff;
-  transition: background-color 0.3s ease;
-  margin-top: auto;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  transform: translateY(-100%);
 }
 #project-dialog {
   margin: auto;
@@ -396,12 +381,12 @@ span.custom-checkbox-display {
 .menu > *:focus {
   background-color: #ddd;
 }
-label#projectTitle {
+label#project-title-label {
   margin: 1rem 0 0.5rem;
   font-size: 1.4rem;
   width: 100%;
 }
-label#projectTitle input#projectTitle {
+label#project-title-label input#projectTitle {
   border-radius: 6px;
   border: none;
   background-color: #999;
@@ -409,10 +394,24 @@ label#projectTitle input#projectTitle {
   width: 100%;
   font-size: 1rem;
 }
-label#projectTitle input#projectTitle:focus {
+label#project-title-label input#projectTitle:focus {
   background-color: #ddd;
 }
 
+.add-task-btn {
+  border: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  max-width: 350px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 12px;
+  background-color: #222;
+  font-family: 'poppins';
+  color: #fff;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
 .add-task-btn:hover {
   background-color: #000;
 }
