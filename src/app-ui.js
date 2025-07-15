@@ -8,6 +8,7 @@ function renderProjects(projects) {
   for (let i = 0; i < projects.length; i++) {
     const projectDiv = document.createElement("div");
     projectDiv.dataset.id = projects[i].uniqueId;
+    projectDiv.className = ".project-item";
 
     const iconImg = document.createElement("img");
     iconImg.setAttribute("src", iconImage);
@@ -37,10 +38,6 @@ function getRandomGradient() {
 function displayTasks(tasks) {
   const taskList = document.getElementById("task-list");
   taskList.innerHTML = '';
-
-  const taskHeading = document.createElement("p");
-  taskHeading.id = "tasks-heading";
-  taskList.appendChild(taskHeading);
 
   for (let i = 0; i < tasks.length; i++) {
     const taskItem = document.createElement("li");
