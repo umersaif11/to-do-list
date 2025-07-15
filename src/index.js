@@ -2,7 +2,7 @@
 
 import "./styles.css";
 import { projectsForTodo, toDoFunction, tasksForToDo } from "./app-logic.js";
-import { renderProjects, listAndHeading, displayTasks } from "./app-ui.js";
+import { renderProjects, displayTasks } from "./app-ui.js";
 
 const toDo = toDoFunction();
 const projects = projectsForTodo();
@@ -22,33 +22,22 @@ if (projects.projects().length === 0) {
 console.log(projects.getActiveProject());
 console.log(projects.projects());
 
-// --- Example Usage (Commented Out) ---
-// projects.removeToDoFromProject("3db4da3b-847b-4ecc-8fc3-876a0dea1e5d");
-// projects.editToDo("8648221d-f15b-41f1-940d-b4c0a2f34d43", {
-//   title: "Read java",
-//   description: "Read Factory"
-// });
-// projects.toggleCompleteStatus("db63a17d-c794-4389-87f8-5fc329988f9f");
-// projects.renameProject("Education", "ED-ucation");
-// projects.deleteProject("ED-ucation");
-// console.log(tasks.getAllTasks());
-// console.log(tasks.getTodayTasks());
-// console.log(tasks.getScheduledTasks());
-// console.log(tasks.getOverdueTasks());
 
 renderProjects(projects.projects());
 
-const projectsContainer = document.querySelector("div.projects");
+const projectsContainer = document.querySelector("ul#projects-list");
+const taskHeading = document.querySelector(".tasks-heading");
 
-projectsContainer.addEventListener("click", (event) => {
-  listAndHeading();
-  const taskHeading = document.getElementById("tasks-heading");
 
-  for (let i = 0; i < projects.projects().length; i++) {
-    if (event.target.dataset.id === projects.projects()[i].uniqueId) {
-      projects.switchProject(projects.projects()[i].id);
-      taskHeading.textContent = projects.getActiveProject();
-      // displayTasks();
+taskHeading.textContent = projects.getActiveProject().id;
+displayTasks(projects.projects()[0]["todos"]);
+
+projectsContainer.addEventListener("click", (event) => { 
+    const projectItem = event.target.closest(".project-item");
+    if(projectItem){
+        projects.switchProject(projectItem.dataset.id);
+        console.log(projects.getActiveProject());
+        displayTasks(projects.getActiveProject()["todos"]);
+        taskHeading.textContent = projects.getActiveProject().id;
     }
-  }
 });
