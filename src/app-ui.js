@@ -1,4 +1,4 @@
-// import {projectsForTodo, toDoFunction, tasksForToDo } from "./app-logic.js";
+
 import iconImage from "./images/folder-file-svgrepo-com.svg"
 import { format } from "date-fns";
 
