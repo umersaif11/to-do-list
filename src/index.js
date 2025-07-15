@@ -48,8 +48,24 @@ function main(){
     }
 
     const addProject = document.querySelector("div.add-project");
+    const dialogAddProject = document.querySelector("dialog#project-dialog");
+    const submitAddProject = document.querySelector("button#add-project-btn");
+    const cancelAddProject = document.querySelector("button#cancel-project-btn");
+    const inputAddProject = document.querySelector("input#projectTitle");
+
     if(addProject){
-        addProject.addEventListener("click", )
+        addProject.addEventListener("click", () => {
+            dialogAddProject.showModal();
+        });
+
+        cancelAddProject.addEventListener("click", () => {
+            dialogAddProject.close();
+        });
+
+        submitAddProject.addEventListener("click", (event) => {
+            event.preventDefault();
+            projectsModule.createProject(inputAddProject.value);
+        })
     }
 
 

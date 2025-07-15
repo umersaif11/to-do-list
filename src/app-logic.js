@@ -49,14 +49,6 @@ function projectsForTodo() {
     localStorage.setItem("projectsArrayJSON", JSON.stringify(projectsArray));
   };
 
-//   let activeProject = "defaultProject";
-
-//   const switchProject = (projectName) => {
-//     activeProject = projectName ? projectName : "defaultProject";
-//   };
-
-//   let getActiveProject = () => activeProject;
-
   let activeProjectId = projectsArray.length > 0 ? projectsArray[0].uniqueId : null;
 
   const switchProject = (projectUniqueId) => {
