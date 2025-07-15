@@ -4,11 +4,12 @@ import { format } from "date-fns";
 
 function renderProjects(projects) {
   const projectsContainer = document.querySelector("ul#projects-list");
+  projectsContainer.innerHTML = '';
 
   for (let i = 0; i < projects.length; i++) {
     const projectDiv = document.createElement("div");
     projectDiv.dataset.id = projects[i].uniqueId;
-    projectDiv.className = ".project-item";
+    projectDiv.className = "project-item";
 
     const iconImg = document.createElement("img");
     iconImg.setAttribute("src", iconImage);
