@@ -81,5 +81,32 @@
             </menu>
         </form>
     </dialog>
+    <dialog id="todo-dialog">
+        <form id="todo-form" method="dialog">
+            <h2>Add Task</h2>
+            <label for="task-title-input" id="task-label">
+                Title
+                <input type="text" id="task-title-input" placeholder="The Odin Project" class="input" required="">
+            </label>
+            <label for="task-descrip-input" id="task-label">
+                <textarea id="task-descrip-input" class="input" placeholder="Study OOP" required=""></textarea>
+            </label>
+            <label for="dueDate-input" id="task-label">
+                Due Date
+                <input type="date" class="input" id="task-date-input">
+            </label>
+            <label for="priority-input" id="task-label">
+                <select id="priority-input" class="select">
+                    <option value="low">Low</option>
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                </select>
+            </label>
+            <menu class="task-dialog-menu">
+                <button type="submit" id="add-task-btn">Add</button>
+                <button id="cancel-task-btn" type="button">Cancel</button>
+            </menu>
+        </form>
+    </dialog>
   </body>
 </html>
