@@ -86,12 +86,30 @@ function main(){
 
     if(addTask){
         addTask.addEventListener("click", () => {
+            inputTaskTitle.value = '';
+            inputDescripTitle.value = '';
+            inputTaskDate.value = '';
             dialogAddTask.showModal();
         });
+
+        cancelAddTask.addEventListener("click", () => {
+            dialogAddTask.close();
+        });
+
+        submitAddTask.addEventListener("click", (event) => {
+            event.preventDefault();
+            projectsModule.putToDoIntoProject(inputTaskTitle.value,
+                inputDescripTitle.value,
+                inputTaskDate.value,
+                inputTaskPriority.value
+            );
+            refreshUI();
+            dialogAddTask.close();
+        })
     }
 
 
-
+    taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
 }
 main();
