@@ -47,6 +47,11 @@ function main(){
         });
     }
 
+    const addProject = document.querySelector("div.add-project");
+    if(addProject){
+        addProject.addEventListener("click", )
+    }
+
 
     refreshUI();
 }
