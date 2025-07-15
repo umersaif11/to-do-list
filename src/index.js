@@ -55,6 +55,7 @@ function main(){
 
     if(addProject){
         addProject.addEventListener("click", () => {
+            inputAddProject.value = '';
             dialogAddProject.showModal();
         });
 
@@ -65,6 +66,11 @@ function main(){
         submitAddProject.addEventListener("click", (event) => {
             event.preventDefault();
             projectsModule.createProject(inputAddProject.value);
+            const lastCreatedProject = projectsModule.projects()[projectsModule.projects().length - 1];
+            projectsModule.switchProject(lastCreatedProject.uniqueId);
+            taskHeading.textContent = projectsModule.getActiveProject().id;
+            refreshUI();
+            dialogAddProject.close();
         })
     }
 
