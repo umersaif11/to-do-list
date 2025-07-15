@@ -85,7 +85,7 @@ function projectsForTodo() {
 
   const putToDoIntoProject = (title, description, dueDate, priority) => {
     for (let i = 0; i < projectsArray.length; i++) {
-      if (projectsArray[i].uniqueId === getActiveProject()) {
+      if (projectsArray[i].uniqueId === getActiveProject().uniqueId) {
         projectsArray[i]["todos"].push(
           toDo.toDoItem(title, description, dueDate, priority)
         );
