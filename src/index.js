@@ -84,6 +84,12 @@ function main(){
     const inputTaskDate = document.querySelector("input#task-date-input");
     const inputTaskPriority = document.querySelector("select#priority-input");
 
+    if(addTask){
+        addTask.addEventListener("click", () => {
+            dialogAddTask.showModal();
+        });
+    }
+
 
 
     refreshUI();
