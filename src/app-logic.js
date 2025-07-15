@@ -49,13 +49,21 @@ function projectsForTodo() {
     localStorage.setItem("projectsArrayJSON", JSON.stringify(projectsArray));
   };
 
-  let activeProject = "defaultProject";
+//   let activeProject = "defaultProject";
 
-  const switchProject = (projectName) => {
-    activeProject = projectName ? projectName : "defaultProject";
+//   const switchProject = (projectName) => {
+//     activeProject = projectName ? projectName : "defaultProject";
+//   };
+
+//   let getActiveProject = () => activeProject;
+
+  let activeProjectId = projectsArray.length > 0 ? projectsArray[0].uniqueId : null;
+
+  const switchProject = (projectUniqueId) => {
+     activeProjectId = projectUniqueId;
   };
 
-  let getActiveProject = () => activeProject;
+  const getActiveProject = () => projectsArray.find(p => p.uniqueId === activeProjectId);
 
   const renameProject = (projectId, newProjectName) => {
     for (let i = 0; i < projectsArray.length; i++) {
@@ -77,7 +85,7 @@ function projectsForTodo() {
 
   const putToDoIntoProject = (title, description, dueDate, priority) => {
     for (let i = 0; i < projectsArray.length; i++) {
-      if (projectsArray[i].id === getActiveProject()) {
+      if (projectsArray[i].uniqueId === getActiveProject()) {
         projectsArray[i]["todos"].push(
           toDo.toDoItem(title, description, dueDate, priority)
         );
