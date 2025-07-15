@@ -27,18 +27,27 @@ function main(){
     if(projectsModule.projects().length === 0){
 
         projectsModule.createProject("Default");
-        projectsModule.switchProject(projects.projects()[0].uniqueId);
+        projectsModule.switchProject(projectsModule.projects()[0].uniqueId);
         projectsModule.putToDoIntoProject("Read javascript", "Read factory functions in detail", "2025-03-25", "normal");
         projectsModule.putToDoIntoProject("clean floor", "with vaccum cleaner", "2025-07-15", "high");
 
         projectsModule.createProject("Education");
-        projectsModule.switchProject(projects.projects()[1].uniqueId);
+        projectsModule.switchProject(projectsModule.projects()[1].uniqueId);
         projectsModule.putToDoIntoProject("drink milk", "oatmilk 5%", "2025-07-07", "low");
     }
 
-    
+    if(projectsListContainer){
+        projectsListContainer.addEventListener("click", (event) => {
+            const projectItem = event.target.closest(".project-item");
+            if(projectItem){
+                projectsModule.switchProject(projectItem.dataset.id);
+                taskHeading.textContent = projectsModule.getActiveProject().id;
+                refreshUI();
+            }
+        });
+    }
 
 
-
-
+    refreshUI();
 }
+main();
