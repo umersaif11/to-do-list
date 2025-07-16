@@ -145,7 +145,6 @@ function main(){
                  dialogEditTask.showModal();
             }
             if(event.target.classList.contains("custom-checkbox-display")){
-
                 projectsModule.toggleCompleteStatus(event.target.dataset.id);
                 refreshUI();
             }

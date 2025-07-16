@@ -231,8 +231,8 @@ span.custom-checkbox-display {
 .task-checkbox:checked + .custom-checkbox-display::after {
   content: '';
   display: block;
-  width: 2px;
-  height: 7px;
+  width: 3px;
+  height: 8px;
   border: solid #fff;
   border-width: 0 2px 2px 0;
   position: absolute;
@@ -260,7 +260,7 @@ span.custom-checkbox-display {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     padding: 10px;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.28s ease-in-out;
 }
 .task-details {
   display: flex;
