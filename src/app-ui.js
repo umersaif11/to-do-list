@@ -67,6 +67,7 @@ function displayTasks(tasks) {
 
     const taskBody = document.createElement("div");
     taskBody.classList.add("task-body");
+    taskBody.dataset.id = `${tasks[i].id}`;
     taskItem.appendChild(taskBody);
 
     const taskDetails = document.createElement("div");
@@ -78,10 +79,12 @@ function displayTasks(tasks) {
     taskDetails.appendChild(firstPara);
 
     const titleSpan = document.createElement("span");
+    titleSpan.classList.add("titleSpan");
     titleSpan.textContent = `${tasks[i].title}`;
     firstPara.appendChild(titleSpan);
 
     const descriptionSpan = document.createElement("span");
+    descriptionSpan.classList.add("descriptionSpan");
     descriptionSpan.textContent = `${tasks[i].description}`;
     firstPara.appendChild(descriptionSpan);
 
@@ -91,6 +94,16 @@ function displayTasks(tasks) {
 
     const prioritySpan = document.createElement("span");
     prioritySpan.textContent = `${tasks[i].priority}`;
+    if(prioritySpan.textContent.toUpperCase() === 'HIGH'){
+        prioritySpan.setAttribute("style", "background-color: #FA8072");
+    } 
+    if(prioritySpan.textContent.toUpperCase() === 'LOW'){
+        prioritySpan.setAttribute("style", "background-color: lightsteelblue;");
+    }
+    if(prioritySpan.textContent.toUpperCase() === 'NORMAL'){
+        prioritySpan.setAttribute("style", "background-color: #F0E68C;");
+    }
+
     prioritySpan.classList.add("priority-pill");
     secondPara.appendChild(prioritySpan);
 
