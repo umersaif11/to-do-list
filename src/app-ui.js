@@ -43,6 +43,9 @@ function displayTasks(tasks) {
   for (let i = 0; i < tasks.length; i++) {
     const taskItem = document.createElement("li");
     taskItem.classList.add("task-item");
+    if(tasks[i].completeStatus === true){
+        taskItem.classList.add("completed");
+    }
     taskItem.style.backgroundImage = getRandomGradient();
     taskList.appendChild(taskItem);
 
@@ -62,6 +65,7 @@ function displayTasks(tasks) {
     checkboxLabel.appendChild(checkbox);
 
     const customCheckboxDisplay = document.createElement('span');
+    customCheckboxDisplay.dataset.id = `${tasks[i].id}`;
     customCheckboxDisplay.classList.add('custom-checkbox-display');
     checkboxLabel.appendChild(customCheckboxDisplay);
 
@@ -103,7 +107,6 @@ function displayTasks(tasks) {
     if(prioritySpan.textContent.toUpperCase() === 'NORMAL'){
         prioritySpan.setAttribute("style", "background-color: #F0E68C;");
     }
-
     prioritySpan.classList.add("priority-pill");
     secondPara.appendChild(prioritySpan);
 
