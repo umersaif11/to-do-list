@@ -120,19 +120,22 @@ function main(){
 
     if(editTask){
         editTask.addEventListener("click", (event) => {
-            deleteTask.dataset.id = event.target.dataset.id;
-            submitEditTask.dataset.id = event.target.dataset.id;
+            const taskItem = event.target.closest(".task-body");
+            if(taskItem){
+                deleteTask.dataset.id = event.target.dataset.id;
+                submitEditTask.dataset.id = event.target.dataset.id;
 
-            const allTasksArray = tasksModule.getAllTasks();
-            const clickedTask = allTasksArray.find(obj => 
-                obj.id === event.target.dataset.id);
+                const allTasksArray = tasksModule.getAllTasks();
+                const clickedTask = allTasksArray.find(obj => 
+                    obj.id === event.target.dataset.id);
 
-            inputEditTaskTitle.value = clickedTask.title;
-            inputEditTaskDescrip.value = clickedTask.description;
-            inputEditTaskDate.value = clickedTask.dueDate;
-            inputEditTaskPriority.value = clickedTask.priority;
-            
-            dialogEditTask.showModal();
+                inputEditTaskTitle.value = clickedTask.title;
+                inputEditTaskDescrip.value = clickedTask.description;
+                inputEditTaskDate.value = clickedTask.dueDate;
+                inputEditTaskPriority.value = clickedTask.priority;
+
+                 dialogEditTask.showModal();
+            }
         });
 
         deleteTask.addEventListener("click", (event) => {
