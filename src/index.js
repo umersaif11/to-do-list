@@ -120,18 +120,18 @@ function main(){
 
     if(editTask){
         editTask.addEventListener("click", (event) => {
+            console.log(event.target);
             deleteTask.dataset.id = event.target.dataset.id;
             submitEditTask.dataset.id = event.target.dataset.id;
 
-            const oldTitle = event.target.closest(".titleSpan").textContent;
-            const oldDescription = event.target.closest(".descriptionSpan").textContent;
-            const oldDate = event.target.closest(".date-pill").textContent;
-            const oldPriority = event.target.closest(".priority-pill").textContent;
+            const allTasksArray = tasksModule.getAllTasks();
+            const clickedTask = allTasksArray.find(obj => 
+                obj.id === event.target.dataset.id);
 
-            inputEditTaskTitle.value = oldTitle;
-            inputEditTaskDescrip.value = oldDescription;
-            inputEditTaskDate.value = oldDate;
-            inputEditTaskPriority.value = oldPriority;
+            inputEditTaskTitle.value = clickedTask.title;
+            inputEditTaskDescrip.value = clickedTask.description;
+            inputEditTaskDate.value = clickedTask.dueDate;
+            inputEditTaskPriority.value = clickedTask.priority;
             
             dialogEditTask.showModal();
         });
