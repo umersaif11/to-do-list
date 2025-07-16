@@ -107,7 +107,7 @@ function main(){
             projectsModule.putToDoIntoProject(
                 inputTaskTitle.value,
                 inputDescripTitle.value,
-                new Date(inputYear,inputMonth,inputDay),
+                new Date(inputYear, inputMonth, inputDay),
                 inputTaskPriority.value
             );
             refreshUI();
