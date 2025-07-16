@@ -122,6 +122,12 @@ function main(){
         editTask.addEventListener("click", (event) => {
             deleteTask.dataset.id = event.target.dataset.id;
             submitEditTask.dataset.id = event.target.dataset.id;
+
+            const oldTitle = event.target.closest(".titleSpan").textContent;
+            const oldDescription = event.target.closest(".descriptionSpan").textContent;
+            const oldDate = event.target.closest(".date-pill").textContent;
+            const oldPriority = event.target.closest(".priority-pill").textContent;
+            // inputEditTaskTitle.value = 
             dialogEditTask.showModal();
         });
 
