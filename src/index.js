@@ -125,6 +125,7 @@ function main(){
     const inputEditTaskDate = document.querySelector("input#editTask-date-input");
     const inputEditTaskPriority = document.querySelector("select#editPriority-input");
 
+
     if(editTask){
         editTask.addEventListener("click", (event) => {
             const taskItem = event.target.closest(".task-body");
@@ -142,6 +143,11 @@ function main(){
                 inputEditTaskPriority.value = clickedTask.priority;
 
                  dialogEditTask.showModal();
+            }
+            if(event.target.classList.contains("custom-checkbox-display")){
+
+                projectsModule.toggleCompleteStatus(event.target.dataset.id);
+                refreshUI();
             }
         });
 
