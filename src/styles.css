@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid red;
+  
 }
 
 html,
@@ -106,6 +106,8 @@ div.add-project {
   font-family: 'lumanosimo';
   padding: 0.2em 0.5em;
   height: 46px;
+  border: 2px solid #808080;
+  border-radius: 7px;
 }
 
 .add-project span {
@@ -252,6 +254,15 @@ span.custom-checkbox-display {
   flex-direction: column;
   gap: 5px;
 }
+.task-body:hover{
+    border: 2px solid #808080;
+    border-radius: 5px;
+    transform:scale(1.02);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.4s ease-in-out;
+}
 .task-details {
   display: flex;
   justify-content: space-between;
@@ -294,7 +305,6 @@ span.custom-checkbox-display {
   display: flex;
   align-items: center;
   gap: 5px;
-  background-color: lightsteelblue;
   border-radius: 12px;
   padding: 4px 8px;
   font-family: 'poppins', sans-serif;
