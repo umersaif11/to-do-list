@@ -120,7 +120,6 @@ function main(){
 
     if(editTask){
         editTask.addEventListener("click", (event) => {
-            console.log(event.target);
             deleteTask.dataset.id = event.target.dataset.id;
             submitEditTask.dataset.id = event.target.dataset.id;
 
