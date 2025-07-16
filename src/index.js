@@ -113,16 +113,10 @@ function main(){
     const submitEditTask = document.querySelector("button#submit-editTask-btn");
     const deleteTask = document.querySelector("button#deleteTaskButton");
 
-    const inputEditTaskTitle = document.querySelector("input#editTask-title-input").value;
-    const inputEditTaskDescrip = document.querySelector("textarea#editTask-descrip-input").value;
-    const inputEditTaskDate = document.querySelector("input#editTask-date-input").value;
-    const inputEditTaskPriority = document.querySelector("select#editPriority-input").value;
-    const updateObject = {
-        title: inputEditTaskTitle,
-        description: inputEditTaskDescrip,
-        dueDate: inputEditTaskDate,
-        priority: inputEditTaskPriority
-    }
+    const inputEditTaskTitle = document.querySelector("input#editTask-title-input");
+    const inputEditTaskDescrip = document.querySelector("textarea#editTask-descrip-input");
+    const inputEditTaskDate = document.querySelector("input#editTask-date-input");
+    const inputEditTaskPriority = document.querySelector("select#editPriority-input");
 
     if(editTask){
         editTask.addEventListener("click", (event) => {
@@ -138,6 +132,12 @@ function main(){
         });
 
         submitEditTask.addEventListener("click", (event) => {
+            const updateObject = {
+            title: inputEditTaskTitle.value,
+            description: inputEditTaskDescrip.value,
+            dueDate: inputEditTaskDate.value,
+            priority: inputEditTaskPriority.value
+        }
             projectsModule.editToDo(event.target.dataset.id, updateObject);
             refreshUI();
             dialogEditTask.close();
