@@ -255,8 +255,7 @@ span.custom-checkbox-display {
   gap: 5px;
 }
 .task-body:hover{
-    border: 2px solid #808080;
-    border-radius: 5px;
+    border-radius: 17px;
     transform:scale(1.02);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;

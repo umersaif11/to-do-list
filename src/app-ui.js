@@ -108,7 +108,7 @@ function displayTasks(tasks) {
     secondPara.appendChild(prioritySpan);
 
     const dateSpan = document.createElement("span");
-    dateSpan.textContent = `${format(tasks[i].dueDate, "E, MMM MM")}`;
+    dateSpan.textContent = `${format(tasks[i].dueDate, "E, MMM d")}`;
     dateSpan.classList.add("date-pill");
     secondPara.appendChild(dateSpan);
   }
