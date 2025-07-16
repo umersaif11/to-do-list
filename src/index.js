@@ -76,7 +76,7 @@ function main(){
 
     const addTask = document.querySelector(".add-task-btn");
     const dialogAddTask = document.querySelector("dialog#todo-dialog");
-    const submitAddTask = document.querySelector("button#add-task-btn");
+    const submitAddTask = document.querySelector("button#add-task-button");
     const cancelAddTask = document.querySelector("button#cancel-task-btn");
 
     const inputTaskTitle = document.querySelector("input#task-title-input");
@@ -105,6 +105,42 @@ function main(){
             );
             refreshUI();
             dialogAddTask.close();
+        })
+    }
+
+    const editTask = document.querySelector("ul#task-list");
+    const dialogEditTask = document.querySelector("dialog#modifyTodoDialog");
+    const submitEditTask = document.querySelector("button#submit-editTask-btn");
+    const deleteTask = document.querySelector("button#deleteTaskButton");
+
+    const inputEditTaskTitle = document.querySelector("input#editTask-title-input").value;
+    const inputEditTaskDescrip = document.querySelector("textarea#editTask-descrip-input").value;
+    const inputEditTaskDate = document.querySelector("input#editTask-date-input").value;
+    const inputEditTaskPriority = document.querySelector("select#editPriority-input").value;
+    const updateObject = {
+        title: inputEditTaskTitle,
+        description: inputEditTaskDescrip,
+        dueDate: inputEditTaskDate,
+        priority: inputEditTaskPriority
+    }
+
+    if(editTask){
+        editTask.addEventListener("click", (event) => {
+            deleteTask.dataset.id = event.target.dataset.id;
+            submitEditTask.dataset.id = event.target.dataset.id;
+            dialogEditTask.showModal();
+        });
+
+        deleteTask.addEventListener("click", (event) => {
+            projectsModule.removeToDoFromProject(event.target.dataset.id);
+            refreshUI();
+            dialogEditTask.close();
+        });
+
+        submitEditTask.addEventListener("click", (event) => {
+            projectsModule.editToDo(event.target.dataset.id, updateObject);
+            refreshUI();
+            dialogEditTask.close();
         })
     }
 
