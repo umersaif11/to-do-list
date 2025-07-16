@@ -92,7 +92,7 @@
                 Description
                 <textarea id="task-descrip-input" class="input" placeholder="Study OOP" required=""></textarea>
             </label>
-            <label for="dueDate-input" id="task-label">
+            <label for="task-date-input" id="task-label">
                 Due Date
                 <input type="date" class="input" id="task-date-input">
             </label>
@@ -105,8 +105,37 @@
                 </select>
             </label>
             <menu class="task-dialog-menu">
-                <button type="submit" id="add-task-btn">Add</button>
+                <button type="submit" id="add-task-button">Add</button>
                 <button id="cancel-task-btn" type="button">Cancel</button>
+            </menu>
+        </form>
+    </dialog>
+     <dialog id="modifyTodoDialog">
+        <form id="modifyTodoForm" method="dialog">
+            <h2>Edit Task</h2>
+            <label for="editTask-title-input" class="modifyTask-label">
+                Title
+                <input type="text" id="editTask-title-input" class="modifyInput" required="">
+            </label>
+            <label for="editTask-descrip-input" class="modifyTask-label">
+                Description
+                <textarea id="editTask-descrip-input" class="modifyInput" required=""></textarea>
+            </label>
+            <label for="editTask-date-input" class="modifyTask-label">
+                Due Date
+                <input type="date" class="modifyInput" id="editTask-date-input">
+            </label>
+            <label for="editPriority-input" class="modifyTask-label">
+                Priority: 
+                <select id="editPriority-input" class="modifySelect">
+                    <option value="low">Low</option>
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                </select>
+            </label>
+            <menu class="modifyTodoMenu">
+                <button type="button" id="deleteTaskButton">Delete Task</button>
+                <button id="submit-editTask-btn" type="submit">Save Changes</button>
             </menu>
         </form>
     </dialog>
