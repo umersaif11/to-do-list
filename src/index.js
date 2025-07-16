@@ -127,7 +127,12 @@ function main(){
             const oldDescription = event.target.closest(".descriptionSpan").textContent;
             const oldDate = event.target.closest(".date-pill").textContent;
             const oldPriority = event.target.closest(".priority-pill").textContent;
-            // inputEditTaskTitle.value = 
+
+            inputEditTaskTitle.value = oldTitle;
+            inputEditTaskDescrip.value = oldDescription;
+            inputEditTaskDate.value = oldDate;
+            inputEditTaskPriority.value = oldPriority;
+            
             dialogEditTask.showModal();
         });
 
