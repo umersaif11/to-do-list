@@ -2,6 +2,16 @@
 import iconImage from "./images/folder-file-svgrepo-com.svg"
 import { format } from "date-fns";
 
+function counterUncheckedTasks(tasksArray) {
+    let counter = 0;
+    for(let i = 0; i < tasksArray.length; i++){
+        if(tasksArray[i].completeStatus === false){
+            counter++;
+        }
+    }
+    return counter;
+}
+
 function renderProjects(projects) {
   const projectsContainer = document.querySelector("ul#projects-list");
   projectsContainer.innerHTML = '';
@@ -22,7 +32,7 @@ function renderProjects(projects) {
     projectDiv.appendChild(nameProject);
 
     const numberOfItems = document.createElement("p");
-    numberOfItems.textContent = `${projects[i]["todos"].length}`;
+    numberOfItems.textContent = `${counterUncheckedTasks(projects[i]["todos"])}`;
     projectDiv.appendChild(numberOfItems);
 
     projectsContainer.appendChild(projectDiv);
@@ -116,5 +126,6 @@ function displayTasks(tasks) {
     secondPara.appendChild(dateSpan);
   }
 }
+
 
 export { renderProjects, displayTasks };
