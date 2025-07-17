@@ -6,6 +6,7 @@ import { renderProjects, displayTasks, counterUncheckedTasks } from "./app-ui.js
 
 function main(){
     const projectsModule = projectsForTodo();
+    const stateVariable = {currentView: "active-project" };
 
     const projectsListContainer = document.querySelector("ul#projects-list");
     const tasksListContainer = document.querySelector("ul#task-list");
@@ -16,6 +17,8 @@ function main(){
     const numberOverdue = document.querySelector(".number.overdue");
     const numberAll = document.querySelector(".number.all");
 
+    console.log(projectsModule.getOverdueTasks());
+
     function refreshUI(){
         const allProjects = projectsModule.projects();
         const activeProject = projectsModule.getActiveProject();
@@ -23,12 +26,24 @@ function main(){
         if(projectsListContainer){
             renderProjects(allProjects);
         }
-        if(tasksListContainer && activeProject){
-            displayTasks(activeProject["todos"]);
+        if(stateVariable.currentView === "active-project"){
+            if(tasksListContainer && activeProject){
+                displayTasks(activeProject["todos"]);
+            }
+        }
+        if(stateVariable.currentView === "today-tasks"){
+            displayTasks(projectsModule.getTodayTasks());
+        }
+        if(stateVariable.currentView === "schedule-tasks"){
+            displayTasks(projectsModule.getScheduledTasks());
+        }
+        if(stateVariable.currentView === "overdue-tasks"){
+            displayTasks(projectsModule.getOverdueTasks);
+        }
+        if(stateVariable.currentView === "all-tasks"){
+            displayTasks(projectsModule.getAllTasks());
         }
         projectsModule.getAllTasks();
-        console.log(projectsModule.projects())
-        console.log(projectsModule.getAllTasks());
         numberToday.textContent = counterUncheckedTasks(projectsModule.getTodayTasks());
         numberSchedule.textContent = counterUncheckedTasks(projectsModule.getScheduledTasks());
         numberOverdue.textContent = counterUncheckedTasks(projectsModule.getOverdueTasks());
@@ -145,7 +160,7 @@ function main(){
                 deleteTask.dataset.id = taskItem.dataset.id;
                 submitEditTask.dataset.id = taskItem.dataset.id;
 
-                const allTasksArray = tasksModule.getAllTasks();
+                const allTasksArray = projectsModule.getAllTasks();
                 const clickedTask = allTasksArray.find(obj => 
                     obj.id === taskItem.dataset.id);
 
@@ -182,6 +197,7 @@ function main(){
             dueDate: new Date(inputYear, inputMonth, inputDay),
             priority: inputEditTaskPriority.value
         }
+            console.log(stateVariable.currentView);
             projectsModule.editToDo(event.target.dataset.id, updateObject);
             refreshUI();
             dialogEditTask.close();
@@ -194,23 +210,28 @@ function main(){
         filteredTasksContainer.addEventListener("click",(event) => {
             const filterToday = event.target.closest(".sidebar-item.today");
             if(filterToday){
-                displayTasks(projectsModule.getTodayTasks());
+                stateVariable.currentView = "today-tasks";
                 taskHeading.textContent = "Today";
+                refreshUI();
             }
             const filterSchedule = event.target.closest(".sidebar-item.schedule");
             if(filterSchedule){
-                displayTasks(projectsModule.getScheduledTasks());
+                stateVariable.currentView = "schedule-tasks";
                 taskHeading.textContent = "Scheduled";
+                refreshUI();
             }
             const filterOverdue = event.target.closest(".sidebar-item.overdue");
             if(filterOverdue){
-                displayTasks(projectsModule.getOverdueTasks());
+                stateVariable.currentView = "overdue-tasks";
                 taskHeading.textContent = "Overdue";
+                refreshUI();
             }
             const filterAll = event.target.closest(".sidebar-item.all");
             if(filterAll){
-                displayTasks(projectsModule.getAllTasks());
+                stateVariable.currentView = "all-tasks";
+                console.log(stateVariable.currentView);
                 taskHeading.textContent = "All";
+                refreshUI();
             }
         })
     }
