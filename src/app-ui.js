@@ -128,4 +128,4 @@ function displayTasks(tasks) {
 }
 
 
-export { renderProjects, displayTasks };
+export { renderProjects, displayTasks, counterUncheckedTasks };
