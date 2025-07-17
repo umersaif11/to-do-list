@@ -8,45 +8,58 @@ function main(){
     const projectsModule = projectsForTodo();
 
     const stateVariable = {currentView: "active-project" };
-    const addTaskButton = document.querySelector("button.add-task-btn");
-    const taskButtonParent = document.querySelector("div#main-content");
 
     const projectsListContainer = document.querySelector("ul#projects-list");
     const tasksListContainer = document.querySelector("ul#task-list");
     const taskHeading = document.querySelector(".tasks-heading");
 
-    const numberToday = document.querySelector(".number.today");
-    const numberSchedule = document.querySelector(".number.schedule");
-    const numberOverdue = document.querySelector(".number.overdue");
-    const numberAll = document.querySelector(".number.all");
-
-    console.log(projectsModule.getOverdueTasks());
-
     function refreshUI(){
         const allProjects = projectsModule.projects();
         const activeProject = projectsModule.getActiveProject();
 
+        const addTaskButton = document.querySelector("button.add-task-btn");
+        const taskButtonParent = document.querySelector("div#main-content");
+
+        const numberToday = document.querySelector(".number.today");
+        const numberSchedule = document.querySelector(".number.schedule");
+        const numberOverdue = document.querySelector(".number.overdue");
+        const numberAll = document.querySelector(".number.all");
+
         if(projectsListContainer){
             renderProjects(allProjects);
         }
+
         if(stateVariable.currentView === "active-project"){
             if(tasksListContainer && activeProject){
                 displayTasks(activeProject["todos"]);
             }
+             if(stateVariable.currentView === "active-project"){
+                 taskButtonParent.appendChild(addTaskButton);
+            }    
         }
-        if(stateVariable.currentView === "today-tasks"){
-            displayTasks(projectsModule.getTodayTasks());
-        }
-        if(stateVariable.currentView === "schedule-tasks"){
-            displayTasks(projectsModule.getScheduledTasks());
-        }
-        if(stateVariable.currentView === "overdue-tasks"){
-            displayTasks(projectsModule.getOverdueTasks());
-        }
-        if(stateVariable.currentView === "all-tasks"){
-            displayTasks(projectsModule.getAllTasks());
+
+        if(taskButtonParent){
+            if(stateVariable.currentView === "today-tasks"){
+                displayTasks(projectsModule.getTodayTasks());
+            }
+            if(stateVariable.currentView === "schedule-tasks"){
+                displayTasks(projectsModule.getScheduledTasks());
+            }
+            if(stateVariable.currentView === "overdue-tasks"){
+                displayTasks(projectsModule.getOverdueTasks());
+            }
+            if(stateVariable.currentView === "all-tasks"){
+                displayTasks(projectsModule.getAllTasks());
+            }
+            if(stateVariable.currentView === "today-tasks" ||
+                stateVariable.currentView === "schedule-tasks" || 
+                stateVariable.currentView === "overdue-tasks" || 
+                stateVariable.currentView === "active-project"){
+                    addTaskButton.remove();
+            }
         }
         projectsModule.getAllTasks();
+        
         numberToday.textContent = counterUncheckedTasks(projectsModule.getTodayTasks());
         numberSchedule.textContent = counterUncheckedTasks(projectsModule.getScheduledTasks());
         numberOverdue.textContent = counterUncheckedTasks(projectsModule.getOverdueTasks());
