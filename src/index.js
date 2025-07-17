@@ -6,7 +6,10 @@ import { renderProjects, displayTasks, counterUncheckedTasks } from "./app-ui.js
 
 function main(){
     const projectsModule = projectsForTodo();
+
     const stateVariable = {currentView: "active-project" };
+    const addTaskButton = document.querySelector("button.add-task-btn");
+    const taskButtonParent = document.querySelector("div#main-content");
 
     const projectsListContainer = document.querySelector("ul#projects-list");
     const tasksListContainer = document.querySelector("ul#task-list");
@@ -239,7 +242,7 @@ function main(){
         })
     }
 
-    
+
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
 }
