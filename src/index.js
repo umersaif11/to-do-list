@@ -1,16 +1,20 @@
 // index.js
 
 import "./styles.css";
-import { projectsForTodo, tasksForToDo } from "./app-logic.js";
+import { projectsForTodo } from "./app-logic.js";
 import { renderProjects, displayTasks, counterUncheckedTasks } from "./app-ui.js";
 
 function main(){
     const projectsModule = projectsForTodo();
-    const tasksModule = tasksForToDo();
 
     const projectsListContainer = document.querySelector("ul#projects-list");
     const tasksListContainer = document.querySelector("ul#task-list");
     const taskHeading = document.querySelector(".tasks-heading");
+
+    const numberToday = document.querySelector(".number.today");
+    const numberSchedule = document.querySelector(".number.schedule");
+    const numberOverdue = document.querySelector(".number.overdue");
+    const numberAll = document.querySelector(".number.all");
 
     function refreshUI(){
         const allProjects = projectsModule.projects();
@@ -22,6 +26,14 @@ function main(){
         if(tasksListContainer && activeProject){
             displayTasks(activeProject["todos"]);
         }
+        projectsModule.getAllTasks();
+        console.log(projectsModule.projects())
+        console.log(projectsModule.getAllTasks());
+        numberToday.textContent = counterUncheckedTasks(projectsModule.getTodayTasks());
+        numberSchedule.textContent = counterUncheckedTasks(projectsModule.getScheduledTasks());
+        numberOverdue.textContent = counterUncheckedTasks(projectsModule.getOverdueTasks());
+        numberAll.textContent = counterUncheckedTasks(projectsModule.getAllTasks());
+
     }
 
     if(projectsModule.projects().length === 0){
@@ -177,20 +189,31 @@ function main(){
     }
 
     const filteredTasksContainer = document.querySelector("div.task.test");
-    const numberToday = document.querySelector(".number.today");
-    // const numberToday = document.querySelector(".number.today");
 
     if(filteredTasksContainer){
         filteredTasksContainer.addEventListener("click",(event) => {
             const filterToday = event.target.closest(".sidebar-item.today");
             if(filterToday){
-                displayTasks(tasksModule.getTodayTasks());
+                displayTasks(projectsModule.getTodayTasks());
                 taskHeading.textContent = "Today";
+            }
+            const filterSchedule = event.target.closest(".sidebar-item.schedule");
+            if(filterSchedule){
+                displayTasks(projectsModule.getScheduledTasks());
+                taskHeading.textContent = "Scheduled";
+            }
+            const filterOverdue = event.target.closest(".sidebar-item.overdue");
+            if(filterOverdue){
+                displayTasks(projectsModule.getOverdueTasks());
+                taskHeading.textContent = "Overdue";
+            }
+            const filterAll = event.target.closest(".sidebar-item.all");
+            if(filterAll){
+                displayTasks(projectsModule.getAllTasks());
+                taskHeading.textContent = "All";
             }
         })
     }
-
-     numberToday.textContent = counterUncheckedTasks(tasksModule.getTodayTasks());
 
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
