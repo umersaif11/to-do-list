@@ -239,6 +239,7 @@ function main(){
         })
     }
 
+    
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
 }
