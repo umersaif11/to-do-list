@@ -38,7 +38,7 @@ function main(){
             displayTasks(projectsModule.getScheduledTasks());
         }
         if(stateVariable.currentView === "overdue-tasks"){
-            displayTasks(projectsModule.getOverdueTasks);
+            displayTasks(projectsModule.getOverdueTasks());
         }
         if(stateVariable.currentView === "all-tasks"){
             displayTasks(projectsModule.getAllTasks());
@@ -67,6 +67,7 @@ function main(){
         projectsListContainer.addEventListener("click", (event) => {
             const projectItem = event.target.closest(".project-item");
             if(projectItem){
+                stateVariable.currentView = "active-project";
                 projectsModule.switchProject(projectItem.dataset.id);
                 taskHeading.textContent = projectsModule.getActiveProject().id;
                 refreshUI();
@@ -92,6 +93,7 @@ function main(){
 
         submitAddProject.addEventListener("click", (event) => {
             event.preventDefault();
+            stateVariable.currentView = "active-project";
             projectsModule.createProject(inputAddProject.value);
             const lastCreatedProject = projectsModule.projects()[projectsModule.projects().length - 1];
             projectsModule.switchProject(lastCreatedProject.uniqueId);
@@ -137,6 +139,7 @@ function main(){
                 new Date(inputYear, inputMonth, inputDay),
                 inputTaskPriority.value
             );
+            stateVariable.currentView = "active-project";
             refreshUI();
             dialogAddTask.close();
         })
