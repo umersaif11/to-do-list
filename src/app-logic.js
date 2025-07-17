@@ -40,6 +40,15 @@ function projectsForTodo() {
   const toDo = toDoFunction();
   let projectsArray = projectsArrayJSON === null ? [] : projectsArrayJSON;
 
+//   const convertStringdatToObject = () => {
+//     projectsArray.forEach((project) => {
+//         project["todos"].forEach((task) => {
+//             task.dueDate = new Date(task.dueDate);
+//         })
+//     })
+//   };
+//   convertStringdatToObject();
+
   const projects = () => projectsArray;
 
   const createProject = (projectName = "Practice TOP") => {
@@ -198,4 +207,4 @@ function projectsForTodo() {
     getOverdueTasks
   };
 }
-export { toDoFunction, projectsForTodo, tasksForToDo };
+export { toDoFunction, projectsForTodo };
