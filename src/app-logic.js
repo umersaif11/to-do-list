@@ -134,29 +134,18 @@ function projectsForTodo() {
     }
   };
 
-  return {
-    projects,
-    createProject,
-    renameProject,
-    deleteProject,
-    getActiveProject,
-    switchProject,
-    putToDoIntoProject,
-    removeToDoFromProject,
-    editToDo,
-    toggleCompleteStatus,
-  };
-}
-
-function tasksForToDo() {
-  const projectsFunctions = projectsForTodo();
-
-  const getAllTasks = () => {
+   const getAllTasks = () => {
     const allTasks = [];
-    for (let i = 0; i < projectsFunctions.projects().length; i++) {
-      allTasks.push(projectsFunctions.projects()[i]["todos"]);
+    for (let i = 0; i < projectsArray.length; i++) {
+        for(let j = 0; j < projectsArray[i]["todos"].length; j++){
+
+            if(projectsArray[i]["todos"][j].completeStatus === false){
+
+                allTasks.push(projectsArray[i]["todos"][j]); 
+            }
+        }
     }
-    return allTasks.flat();
+    return allTasks;
   };
 
   const getTodayTasks = () => {
@@ -193,11 +182,20 @@ function tasksForToDo() {
   };
 
   return {
+    projects,
+    createProject,
+    renameProject,
+    deleteProject,
+    getActiveProject,
+    switchProject,
+    putToDoIntoProject,
+    removeToDoFromProject,
+    editToDo,
+    toggleCompleteStatus,
     getAllTasks,
     getTodayTasks,
     getScheduledTasks,
-    getOverdueTasks,
+    getOverdueTasks
   };
 }
-
 export { toDoFunction, projectsForTodo, tasksForToDo };
