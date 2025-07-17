@@ -2,7 +2,7 @@
 
 import "./styles.css";
 import { projectsForTodo, tasksForToDo } from "./app-logic.js";
-import { renderProjects, displayTasks } from "./app-ui.js";
+import { renderProjects, displayTasks, counterUncheckedTasks } from "./app-ui.js";
 
 function main(){
     const projectsModule = projectsForTodo();
@@ -176,6 +176,21 @@ function main(){
         })
     }
 
+    const filteredTasksContainer = document.querySelector("div.task.test");
+    const numberToday = document.querySelector(".number.today");
+    // const numberToday = document.querySelector(".number.today");
+
+    if(filteredTasksContainer){
+        filteredTasksContainer.addEventListener("click",(event) => {
+            const filterToday = event.target.closest(".sidebar-item.today");
+            if(filterToday){
+                displayTasks(tasksModule.getTodayTasks());
+                taskHeading.textContent = "Today";
+            }
+        })
+    }
+
+     numberToday.textContent = counterUncheckedTasks(tasksModule.getTodayTasks());
 
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
