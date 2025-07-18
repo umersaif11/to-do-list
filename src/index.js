@@ -86,11 +86,15 @@ function main(){
 
                 document.body.appendChild(popUpDiv);
 
-                window.addEventListener("click", () => {
+                const clickAnywhereElse = () => {
                     if(!popUpDiv.contains(event.target)){
                          popUpDiv.style.display = "none";
                     }
-                },{ once: true });
+                }
+                window.addEventListener("click", () => {
+                    clickAnywhereElse();
+                    window.removeEventListener("click", clickAnywhereElse());
+                });
 
             } else {
                 stateVariable.currentView = "active-project";
