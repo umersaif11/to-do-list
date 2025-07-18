@@ -73,6 +73,18 @@ function main(){
         projectsListContainer.addEventListener("click", (event) => {
             const projectItem = event.target.closest(".project-item");
             if(event.target.classList.contains("project-menu-svg")){
+                const popUpDiv = document.createElement("div");
+                popUpDiv.classList.add("pop-up");
+
+                const renameProject = document.createElement("p");
+                renameProject.textContent = "Rename";
+                const deleteProject = document.createElement("p");
+                deleteProject.textContent = "Delete";
+                popUpDiv.appendChild(renameProject);
+                popUpDiv.appendChild(deleteProject);
+
+                document.body.appendChild(popUpDiv);
+                
 
             } else {
                 stateVariable.currentView = "active-project";
