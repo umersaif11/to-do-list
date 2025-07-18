@@ -90,7 +90,7 @@ function main(){
                     if(!popUpDiv.contains(event.target)){
                          popUpDiv.style.display = "none";
                     }
-                },{ once: true })
+                },{ once: true });
 
             } else {
                 stateVariable.currentView = "active-project";
