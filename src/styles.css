@@ -94,6 +94,14 @@ ul#projects-list > div:first-of-type {
   padding: 0.4em 0.8em 0.4em 0.5em;
   transition: all 0.3s ease;
 }
+.test > div > p:first-of-type,
+ul#projects-list > div > p:first-of-type {
+  flex-grow: 1;
+}
+.number,
+.num-of-project-items {
+  font-size: 1.1rem;
+}
 .test > div:focus,
 .test > div:hover,
 ul#projects-list > div:hover,
@@ -106,6 +114,11 @@ ul#projects-list > div:focus {
 }
 .project-item:hover > .project-menu-svg {
     display: block;
+    transform:scale(1.07);
+    cursor: pointer;
+    border-radius: 18px;
+    background-color:  	#808080;
+    transition: all 0.28s ease-in-out;
 }
 .project-item:hover > .num-of-project-items {
     display: none;
@@ -118,6 +131,9 @@ div.add-project {
   height: 46px;
   border: 2px solid #808080;
   border-radius: 7px;
+}
+div.add-project:hover{
+    cursor: pointer;
 }
 
 .add-project span {
@@ -441,6 +457,7 @@ label#project-title-label input#projectTitle:focus {
 }
 .add-task-btn:hover {
   background-color: #444;
+  cursor: pointer;
 }
 #todo-dialog {
   margin: auto;
