@@ -1,5 +1,6 @@
 
-import iconImage from "./images/folder-file-svgrepo-com.svg"
+import iconImage from "./images/folder-file-svgrepo-com.svg";
+import projectMenu from "./images/menu-dots-svgrepo-com.svg";
 import { format } from "date-fns";
 
 function counterUncheckedTasks(tasksArray) {
@@ -34,6 +35,14 @@ function renderProjects(projects) {
     const numberOfItems = document.createElement("p");
     numberOfItems.textContent = `${counterUncheckedTasks(projects[i]["todos"])}`;
     projectDiv.appendChild(numberOfItems);
+
+    const projectIcon = document.createElement("img");
+    projectIcon.setAttribute("src", projectMenu);
+    projectIcon.setAttribute("height", 25);
+    projectIcon.setAttribute("width", 25);
+    projectIcon.setAttribute("style", "display: none");
+    projectIcon.classList.add("project-menu-svg");
+    projectDiv.appendChild(projectIcon);
 
     projectsContainer.appendChild(projectDiv);
   }
