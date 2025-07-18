@@ -73,6 +73,7 @@ function main(){
         projectsListContainer.addEventListener("click", (event) => {
             const projectItem = event.target.closest(".project-item");
             if(event.target.classList.contains("project-menu-svg")){
+                event.stopPropagation();
                 const popUpDiv = document.createElement("div");
                 popUpDiv.classList.add("pop-up");
 
