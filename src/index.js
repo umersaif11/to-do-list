@@ -84,7 +84,12 @@ function main(){
                 popUpDiv.appendChild(deleteProject);
 
                 document.body.appendChild(popUpDiv);
-                
+
+                window.addEventListener("click", () => {
+                    if(!popUpDiv.contains(event.target)){
+                         popUpDiv.style.display = "none";
+                    }
+                },{ once: true })
 
             } else {
                 stateVariable.currentView = "active-project";
