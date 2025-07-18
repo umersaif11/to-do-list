@@ -80,6 +80,7 @@ function main(){
                 }
                 const popUpDiv = document.createElement("div");
                 popUpDiv.classList.add("pop-up");
+                const menuSvgPosition = event.target.getBoundingClientRect();
                 // popUpDiv.style.top = `${event.clientX}px`;
                 // popUpDiv.style.left = `${event.clientY}px`;
 
