@@ -80,8 +80,8 @@ function main(){
                 }
                 const popUpDiv = document.createElement("div");
                 popUpDiv.classList.add("pop-up");
-                popUpDiv.style.top = `${event.clientX}px`;
-                popUpDiv.style.left = `${event.clientY}px`;
+                // popUpDiv.style.top = `${event.clientX}px`;
+                // popUpDiv.style.left = `${event.clientY}px`;
 
                 const renameProject = document.createElement("p");
                 renameProject.textContent = "Rename";
@@ -94,7 +94,6 @@ function main(){
 
                 const clickAnywhereElse = () => {
                     if(!popUpDiv.contains(event.target)){
-                         popUpDiv.style.display = "none";
                          popUpDiv.remove();
                     }
                 }
