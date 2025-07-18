@@ -72,7 +72,9 @@ function main(){
     if(projectsListContainer){
         projectsListContainer.addEventListener("click", (event) => {
             const projectItem = event.target.closest(".project-item");
-            if(projectItem){
+            if(event.target.classList.contains("project-menu-svg")){
+
+            } else {
                 stateVariable.currentView = "active-project";
                 projectsModule.switchProject(projectItem.dataset.id);
                 taskHeading.textContent = projectsModule.getActiveProject().id;
