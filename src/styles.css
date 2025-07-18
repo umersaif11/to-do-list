@@ -75,7 +75,8 @@ body {
   margin-top: 0;
 }
 
-.test > div:first-of-type {
+.test > div:first-of-type,
+ul#projects-list > div:first-of-type {
   margin-top: 15px;
 }
 
@@ -99,6 +100,15 @@ ul#projects-list > div:hover,
 ul#projects-list > div:focus {
   background-color: #777;
   border-radius: 10px;
+}
+.project-menu-svg{
+    display: none;
+}
+.project-item:hover > .project-menu-svg {
+    display: block;
+}
+.project-item:hover > .num-of-project-items {
+    display: none;
 }
 
 div.add-project {
