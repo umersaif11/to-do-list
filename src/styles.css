@@ -114,11 +114,14 @@ ul#projects-list > div:focus {
 }
 .project-item:hover > .project-menu-svg {
     display: block;
+}
+.project-item:hover > .project-menu-svg:hover{
+    border-radius: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color:  	#808080;
+    transition: all 0.2s ease-in-out;
     transform:scale(1.07);
     cursor: pointer;
-    border-radius: 18px;
-    background-color:  	#808080;
-    transition: all 0.28s ease-in-out;
 }
 .project-item:hover > .num-of-project-items {
     display: none;
@@ -655,4 +658,29 @@ textarea.modifyInput {
 }
 .modifySelect:focus {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.pop-up {
+  position: absolute;
+  /* left: 150px;
+  top: 1px; */
+  background-color: #666;
+  padding: 0;
+  border-radius: 8px;
+  z-index: 2000;
+}
+.pop-up > * {
+  padding: 8px 30px;
+  cursor: pointer;
+  text-align: center;
+}
+.pop-up > :hover {
+  background-color: #999;
+}
+.pop-up > :first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.pop-up > :last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
