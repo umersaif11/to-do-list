@@ -74,8 +74,14 @@ function main(){
             const projectItem = event.target.closest(".project-item");
             if(event.target.classList.contains("project-menu-svg")){
                 event.stopPropagation();
+                const alreadyExistingPopup = document.querySelector(".pop-up");
+                if(alreadyExistingPopup){
+                    alreadyExistingPopup.remove();
+                }
                 const popUpDiv = document.createElement("div");
                 popUpDiv.classList.add("pop-up");
+                popUpDiv.style.top = `${event.clientX}px`;
+                popUpDiv.style.left = `${event.clientY}px`;
 
                 const renameProject = document.createElement("p");
                 renameProject.textContent = "Rename";
@@ -89,6 +95,7 @@ function main(){
                 const clickAnywhereElse = () => {
                     if(!popUpDiv.contains(event.target)){
                          popUpDiv.style.display = "none";
+                         popUpDiv.remove();
                     }
                 }
                 window.addEventListener("click", () => {
