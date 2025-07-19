@@ -133,10 +133,9 @@ function main(){
                             project => project.uniqueId === projectItem.dataset.id
                         );
                         renameProjectInput.value = clickedProject.id;
-
+                        
                         renameProjectDialog.showModal(); 
                     });
-                    
                 }
 
             } else {
@@ -148,8 +147,18 @@ function main(){
         });
     }
 
+    cancelRenameProject.addEventListener("click", () => {
+        renameProjectDialog.close();
+    });
 
-    
+    confirmRenameProject.addEventListener("click", () => {
+        projectsModule.renameProject(
+            projectItemIdForRenameListener,
+            renameProjectInput.value
+        );
+        refreshUI();
+        renameProjectDialog.close();
+    });
 
     const addProject = document.querySelector("div.add-project");
     const dialogAddProject = document.querySelector("dialog#project-dialog");
