@@ -136,6 +136,7 @@ function main(){
 
                         renameProjectDialog.showModal(); 
                     });
+                    
                 }
 
             } else {
