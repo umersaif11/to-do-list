@@ -427,12 +427,14 @@ span.custom-checkbox-display {
 .menu > *:focus {
   background-color: #ddd;
 }
-label#project-title-label {
+label#project-title-label,
+#modifyProjectLabel {
   margin: 1rem 0 0.5rem;
   font-size: 1.4rem;
   width: 100%;
 }
-label#project-title-label input#projectTitle {
+label#project-title-label input#projectTitle,
+#modifyProjectTitleInput {
   border-radius: 6px;
   border: none;
   background-color: #999;
@@ -440,7 +442,8 @@ label#project-title-label input#projectTitle {
   width: 100%;
   font-size: 1rem;
 }
-label#project-title-label input#projectTitle:focus {
+label#project-title-label input#projectTitle:focus,
+#modifyProjectTitleInput:focus {
   background-color: #ddd;
 }
 
