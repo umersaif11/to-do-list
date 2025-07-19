@@ -754,4 +754,11 @@ textarea.modifyInput {
   transition: all 0.3s ease;
 }
 
-
+.hamburger-btn .sidebar-left {
+width: 25px;
+aspect-ratio: 1;
+background-image: url('./images/sidebar-left-svgrepo-com.svg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
