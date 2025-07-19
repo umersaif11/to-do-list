@@ -98,11 +98,6 @@ function main(){
 
                 document.body.appendChild(popUpDiv);
 
-                deleteProject.addEventListener("click", () => {
-                    projectsModule.deleteProject(projectItem.dataset.id);
-                    refreshUI();
-                });
-
                 const clickAnywhereElse = () => {
                     if(!popUpDiv.contains(event.target)){
                          popUpDiv.remove();
@@ -113,12 +108,23 @@ function main(){
                     window.removeEventListener("click", clickAnywhereElse());
                 });
 
+                deleteProject.addEventListener("click", () => {
+                    projectsModule.deleteProject(projectItem.dataset.id);
+                    refreshUI();
+                });
+
                 const renameProjectDialog = document.querySelector("#modifyProjectDialog");
                 const renameProjectInput = document.querySelector("#modifyProjectTitleInput");
                 const confirmRenameProject = document.querySelector("#submitDialogButton");
                 const cancelRenameProject = document.querySelector("#closeDialogButton");
 
+                if(renameProject){
+                    renameProject.addEventListener("click", () => {
+                        renameProjectDialog.showModal();
+                    });
 
+                    
+                }
 
             } else {
                 stateVariable.currentView = "active-project";
