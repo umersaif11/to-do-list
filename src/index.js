@@ -72,6 +72,7 @@ function main(){
     if(projectsListContainer){
         projectsListContainer.addEventListener("click", (event) => {
             const projectItem = event.target.closest(".project-item");
+
             if(event.target.classList.contains("project-menu-svg")){
                 event.stopPropagation();
                 const alreadyExistingPopup = document.querySelector(".pop-up");
@@ -81,15 +82,22 @@ function main(){
                 const popUpDiv = document.createElement("div");
                 popUpDiv.classList.add("pop-up");
                 const menuSvgPosition = event.target.getBoundingClientRect();
-                const svgTopDistance = menuSvgPosition.top + window.scrollY - 15;
+                const svgTopDistance = menuSvgPosition.top + window.scrollY - 20;
                 const svgLeftDistance = menuSvgPosition.right + window.scrollX + 15;
                 popUpDiv.style.top = `${svgTopDistance}px`;
                 popUpDiv.style.left = `${svgLeftDistance}px`;
 
                 const renameProject = document.createElement("p");
                 renameProject.textContent = "Rename";
+
                 const deleteProject = document.createElement("p");
                 deleteProject.textContent = "Delete";
+
+                deleteProject.addEventListener("click", () => {
+                    projectsModule.deleteProject(projectItem.dataset.id);
+                    refreshUI();
+                })
+
                 popUpDiv.appendChild(renameProject);
                 popUpDiv.appendChild(deleteProject);
 
