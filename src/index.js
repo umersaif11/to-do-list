@@ -123,7 +123,9 @@ function main(){
                         renameProjectDialog.showModal();
                     });
 
-                    
+                    cancelRenameProject.addEventListener("click", () => {
+                        renameProjectDialog.close();
+                    });
                 }
 
             } else {
