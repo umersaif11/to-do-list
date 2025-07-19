@@ -740,3 +740,18 @@ textarea.modifyInput {
 .modifyProjectMenu > :last-child:focus {
   background-color: #218838;
 }
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: start;
+  width: min-content;
+  padding: 0.4em 0.4em;
+  position: fixed;
+  top: 15px;
+  z-index: 1100;
+  left: 20px;
+  transition: all 0.3s ease;
+}
+
+
