@@ -767,3 +767,17 @@ background-repeat: no-repeat;
   backdrop-filter: blur(3rem);
   border-radius: 10px;
 }
+#sidebar-container.close {
+    padding: 0px;
+    width: 80px;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+#sidebar-container.close h4,
+#sidebar-container.close p,
+#sidebar-container.close .projects.test{
+    display: none;
+}
+#sidebar-container.close .test > div:first-of-type {
+    margin-top: 80px;
+}
