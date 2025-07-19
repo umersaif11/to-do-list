@@ -125,7 +125,18 @@ function main(){
                     projectsModule.deleteProject(projectItem.dataset.id);
                     refreshUI();
                 });
-                
+                if(renameProject){ 
+
+                    renameProject.addEventListener("click", () => {
+
+                        const clickedProject = projectsModule.projects().find(
+                            project => project.uniqueId === projectItem.dataset.id
+                        );
+                        renameProjectInput.value = clickedProject.id;
+
+                        renameProjectDialog.showModal(); 
+                    });
+                }
 
             } else {
                 stateVariable.currentView = "active-project";
