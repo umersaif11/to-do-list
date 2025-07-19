@@ -33,7 +33,7 @@ body {
   background-color: rgba(51, 51, 51, 0.1);
   backdrop-filter: blur(2rem);
   width: 250px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   flex-shrink: 0;
   z-index: 1000;
   position: relative;
