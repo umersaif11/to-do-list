@@ -762,3 +762,8 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 }
+.hamburger-btn:hover {
+  background-color: rgba(51, 51, 51, 0.1);
+  backdrop-filter: blur(3rem);
+  border-radius: 10px;
+}
