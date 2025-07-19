@@ -8,6 +8,7 @@ function main(){
     const projectsModule = projectsForTodo();
 
     const stateVariable = {currentView: "active-project" };
+    let projectItemIdForRenameListener = null;
    
     const addTask = document.querySelector(".add-task-btn");
 
@@ -28,6 +29,7 @@ function main(){
         if(projectsListContainer){
             renderProjects(allProjects);
         }
+
         if(stateVariable.currentView === "active-project"){
             if(tasksListContainer && activeProject){
                 displayTasks(activeProject["todos"]);
@@ -36,6 +38,7 @@ function main(){
         } else{
             addTask.setAttribute("style","display:none");
         }
+
         if(stateVariable.currentView === "today-tasks"){
             displayTasks(projectsModule.getTodayTasks());
         }
@@ -67,11 +70,20 @@ function main(){
         projectsModule.createProject("Education");
         projectsModule.switchProject(projectsModule.projects()[1].uniqueId);
         projectsModule.putToDoIntoProject("drink milk", "oatmilk 5%", "2025-07-07", "low");
+
+        projectsModule.switchProject(projectsModule.projects()[0].uniqueId);
     }
+
+    const renameProjectDialog = document.querySelector("#modifyProjectDialog");
+    const renameProjectInput = document.querySelector("#modifyProjectTitleInput");
+    const confirmRenameProject = document.querySelector("#submitDialogButton");
+    const cancelRenameProject = document.querySelector("#closeDialogButton");
 
     if(projectsListContainer){
         projectsListContainer.addEventListener("click", (event) => {
             const projectItem = event.target.closest(".project-item");
+            projectItemIdForRenameListener = projectItem.dataset.id;
+            console.log(projectItemIdForRenameListener);
 
             if(event.target.classList.contains("project-menu-svg")){
                 event.stopPropagation();
@@ -88,6 +100,7 @@ function main(){
                 popUpDiv.style.left = `${svgLeftDistance}px`;
 
                 const renameProject = document.createElement("p");
+                renameProject.classList.add("rename-project-button");
                 renameProject.textContent = "Rename";
 
                 const deleteProject = document.createElement("p");
@@ -105,28 +118,14 @@ function main(){
                 }
                 window.addEventListener("click", () => {
                     clickAnywhereElse();
-                    window.removeEventListener("click", clickAnywhereElse());
+                    window.removeEventListener("click", clickAnywhereElse);
                 });
 
                 deleteProject.addEventListener("click", () => {
                     projectsModule.deleteProject(projectItem.dataset.id);
                     refreshUI();
                 });
-
-                const renameProjectDialog = document.querySelector("#modifyProjectDialog");
-                const renameProjectInput = document.querySelector("#modifyProjectTitleInput");
-                const confirmRenameProject = document.querySelector("#submitDialogButton");
-                const cancelRenameProject = document.querySelector("#closeDialogButton");
-
-                if(renameProject){
-                    renameProject.addEventListener("click", () => {
-                        renameProjectDialog.showModal();
-                    });
-
-                    cancelRenameProject.addEventListener("click", () => {
-                        renameProjectDialog.close();
-                    });
-                }
+                
 
             } else {
                 stateVariable.currentView = "active-project";
@@ -136,6 +135,9 @@ function main(){
             }
         });
     }
+
+
+    
 
     const addProject = document.querySelector("div.add-project");
     const dialogAddProject = document.querySelector("dialog#project-dialog");
@@ -299,9 +301,8 @@ function main(){
             }
         })
     }
-
-
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
+
 }
 main();
