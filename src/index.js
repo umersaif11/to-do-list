@@ -246,10 +246,16 @@ function main(){
             if(taskItem){
                 deleteTask.dataset.id = taskItem.dataset.id;
                 submitEditTask.dataset.id = taskItem.dataset.id;
+                let clickedTask = "";
 
-                const allTasksArray = projectsModule.getAllTasks();
-                const clickedTask = allTasksArray.find(obj => 
-                    obj.id === taskItem.dataset.id);
+                for(let i = 0; i < projectsModule.projects().length; i++){
+                   clickedTask = projectsModule.projects()[i]["todos"].find(
+                        task => task.id === taskItem.dataset.id
+                    )
+                    if(clickedTask){
+                        break;
+                    }
+                }
 
                 inputEditTaskTitle.value = clickedTask.title;
                 inputEditTaskDescrip.value = clickedTask.description;
@@ -322,6 +328,15 @@ function main(){
             }
         })
     }
+
+    const toggelButton = document.getElementById("hamburger");
+    const sidebar = document.getElementById("sidebar-container");
+
+    toggelButton.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+    })
+
+
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
 
