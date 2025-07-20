@@ -25,9 +25,16 @@ function main(){
         const numberOverdue = document.querySelector(".number.overdue");
         const numberAll = document.querySelector(".number.all");
 
+        // this variable and below if condition is to activate the active' class
+        // on clicked .project-item when on mobile mode
+        let activeIdToRender = null;
+        if(stateVariable.currentView === 'active-project' && activeProject){
+            activeIdToRender = activeProject.uniqueId;
+        }
+
         
         if(projectsListContainer){
-            renderProjects(allProjects);
+            renderProjects(allProjects, activeIdToRender);
         }
 
         if(stateVariable.currentView === "active-project"){
