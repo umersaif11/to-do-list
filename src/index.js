@@ -267,6 +267,7 @@ function main(){
                 inputEditTaskTitle.value = clickedTask.title;
                 inputEditTaskDescrip.value = clickedTask.description;
                 inputEditTaskDate.value = clickedTask.dueDate;
+                console.log(clickedTask.dueDate);
                 inputEditTaskPriority.value = clickedTask.priority;
 
                  dialogEditTask.showModal();
@@ -297,7 +298,6 @@ function main(){
             dueDate: new Date(inputYear, inputMonth, inputDay),
             priority: inputEditTaskPriority.value
         }
-            console.log(stateVariable.currentView);
             projectsModule.editToDo(event.target.dataset.id, updateObject);
             refreshUI();
             dialogEditTask.close();
