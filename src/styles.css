@@ -109,6 +109,11 @@ ul#projects-list > div:focus {
   background-color: #777;
   border-radius: 10px;
 }
+/* for mobile mode */
+.project-item.active {
+  background-color: #777;
+  border-radius: 10px;
+}
 .project-menu-svg{
     display: none;
 }
