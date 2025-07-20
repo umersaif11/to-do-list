@@ -339,14 +339,15 @@ function main(){
     const toggelButton = document.getElementById("hamburger");
     const sidebar = document.getElementById("sidebar-container");
 
-    toggelButton.addEventListener("click", (event) => {
-        event.stopPropagation();
+    toggelButton.addEventListener("click", () => {
         sidebar.classList.toggle("close");
     })
 
-    document.addEventListener("click", () => {
-
+    const mainContentArea = document.getElementById("main-content");
+    mainContentArea.addEventListener("click", (event) => {
+       
     })
+
 
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
