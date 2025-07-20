@@ -339,17 +339,14 @@ function main(){
     const toggelButton = document.getElementById("hamburger");
     const sidebar = document.getElementById("sidebar-container");
 
-    toggelButton.addEventListener("click", () => {
+    toggelButton.addEventListener("click", (event) => {
+        event.stopPropagation();
         sidebar.classList.toggle("close");
     })
 
-    const mainContentArea = document.getElementById("main-content");
-    mainContentArea.addEventListener("click", () => {
-        if(window.innerWidth < 768 && !sidebar.classList.contains("close")){
-            sidebar.classList.add("close");
-        }
-    })
+    document.addEventListener("click", () => {
 
+    })
 
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
