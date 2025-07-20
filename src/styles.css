@@ -109,11 +109,7 @@ ul#projects-list > div:focus {
   background-color: #777;
   border-radius: 10px;
 }
-/* for mobile mode */
-.project-item.active {
-  background-color: #777;
-  border-radius: 10px;
-}
+
 .project-menu-svg{
     display: none;
 }
@@ -292,12 +288,7 @@ span.custom-checkbox-display {
   gap: 5px;
 }
 .task-body:hover{
-    /* border-radius: 17px;
-    transform:scale(1.02);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
-    cursor: pointer;
-    /* padding: 10px;
-    transition: all 0.28s ease-in-out; */
+   cursor: pointer;
 }
 .task-details {
   display: flex;
@@ -791,26 +782,46 @@ background-repeat: no-repeat;
 #sidebar-container.close .test > div:first-of-type {
     margin-top: 80px;
 }
-@media (max-width: 600px) {
-  /* .project-menu-svg{
+@media (max-width: 768px) {
+    .project-item.active > .project-menu-svg{
     display: block;
-  } */
-   
+  }
+   .project-item.active {
+    background-color: #777;
+    border-radius: 10px;
+  }
+  .project-item.active > .num-of-project-items {
+    display: none;
+  } 
+    #main-content{
+        position: fixed;
+        left: 70px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+    }
+  #sidebar-container {
+    max-width: 225px;
+  }
+  #side-bar {
+    max-width: 225px;
+    width: 100%;
+    scrollbar-color: #aaa transparent;
+  }
+  .add-task-btn {
+    margin-bottom: 50px;
+    max-width: 250px;
+  }
  
+}
+@media (max-width: 600px) {
+  
   .task-item {
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 20px;
   }
-  /* .task-body:hover{
-    border-radius: 0px;
-    transform: none;
-    box-shadow: none;
-    cursor: pointer;
-    padding: none;
-    transition:none;
-} */
-
   .task-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -828,56 +839,40 @@ background-repeat: no-repeat;
     align-items: center;
   }
 }
-@media (max-width: 768px) {
-    #main-content{
-        position: fixed;
-        left: 70px;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        overflow-y: auto;
-    }
-  #sidebar-container {
-    /* position: fixed;
-    left: 0;
-    top: 0; */
-    max-width: 250px;
-  }
-  #side-bar {
-    max-width: 250px;
-    width: 100%;
-    scrollbar-color: #aaa transparent;
-  }
+@media (max-width: 388px){
+   
 
-  /* .overlay.active {
-    transform: translateY(0);
-  } */
-  .add-task-btn {
-    margin-bottom: 50px;
-    max-width: 250px;
+  .task-item {
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
   }
-  /* .hamburger-btn .sidebar-left {
-    display: none;
-  } */
-  /* #hamburger .cancel-svg {
-    display: block;
+  .task-body:hover{
+    border-radius: 0px;
+    transform: none;
+    box-shadow: none;
+    padding: none;
+    transition:none;
   }
-
-  #hamburger.open {
-    .cancel-svg {
-      display: block;
-    }
-    .hamburger-svg {
-      display: none;
-    }
+    .task-details {
+    display: flex;
+    flex-direction: column;
   }
-
-  #hamburger.close {
-    .hamburger-svg {
-      display: block;
-    }
-    .cancel-svg {
-      display: none;
-    }
-  } */
+  .first-para {
+    display: flex;
+    flex-direction: column;
+  }
+  .second-para {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
+@media (max-width: 348px){
+    .second-para {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
