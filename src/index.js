@@ -343,6 +343,13 @@ function main(){
         sidebar.classList.toggle("close");
     })
 
+    const mainContentArea = document.getElementById("main-content");
+    mainContentArea.addEventListener("click", () => {
+        if(window.innerWidth < 768 && !sidebar.classList.contains("close")){
+            sidebar.classList.add("close");
+        }
+    })
+
 
     taskHeading.textContent = projectsModule.getActiveProject().id;
     refreshUI();
