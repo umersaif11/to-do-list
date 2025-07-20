@@ -13,7 +13,7 @@ function counterUncheckedTasks(tasksArray) {
     return counter;
 }
 
-function renderProjects(projects) {
+function renderProjects(projects, activeProjectID) {
   const projectsContainer = document.querySelector("ul#projects-list");
   projectsContainer.innerHTML = '';
 
@@ -21,6 +21,11 @@ function renderProjects(projects) {
     const projectDiv = document.createElement("div");
     projectDiv.dataset.id = projects[i].uniqueId;
     projectDiv.className = "project-item";
+
+    // for mobile mode
+    if(projects[i].uniqueId === activeProjectID){
+        projectDiv.classList.add("active");
+    }
 
     const iconImg = document.createElement("img");
     iconImg.setAttribute("src", iconImage);
