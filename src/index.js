@@ -345,8 +345,11 @@ function main(){
 
     const mainContentArea = document.getElementById("main-content");
     mainContentArea.addEventListener("click", (event) => {
-       
-    })
+       if(!sidebar.classList.contains("close")){
+        sidebar.classList.add("close");
+        event.stopPropagation();
+       }
+    },{capture: true});
 
 
     taskHeading.textContent = projectsModule.getActiveProject().id;
