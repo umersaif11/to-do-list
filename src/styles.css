@@ -379,7 +379,7 @@ span.custom-checkbox-display {
   left: 0;
   width: 100vw;
   height: calc(100vh);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 999;
   transform: translateY(-100%);
 }
@@ -783,6 +783,9 @@ background-repeat: no-repeat;
     margin-top: 80px;
 }
 @media (max-width: 768px) {
+    /* .overlay.active {
+    transform: translateY(0);
+  } */
     .project-item.active > .project-menu-svg{
     display: block;
   }

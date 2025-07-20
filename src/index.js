@@ -345,7 +345,7 @@ function main(){
 
     const mainContentArea = document.getElementById("main-content");
     mainContentArea.addEventListener("click", (event) => {
-       if(!sidebar.classList.contains("close")){
+       if(!sidebar.classList.contains("close") && window.innerWidth < 768){
         sidebar.classList.add("close");
         event.stopPropagation();
        }
