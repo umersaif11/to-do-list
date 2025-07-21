@@ -90,7 +90,6 @@ function main(){
         projectsListContainer.addEventListener("click", (event) => {
             const projectItem = event.target.closest(".project-item");
             projectItemIdForRenameListener = projectItem.dataset.id;
-            console.log(projectItemIdForRenameListener);
 
             if(event.target.classList.contains("project-menu-svg")){
                 event.stopPropagation();
@@ -219,6 +218,7 @@ function main(){
         submitAddTask.addEventListener("click", (event) => {
             event.preventDefault();
             const inputDate = inputTaskDate.value;
+            let dueDate = null;
 
             const inputYear = inputDate.slice(0, 4);
             const inputMonth = Number(inputDate.slice(5,7)) - 1;
@@ -267,7 +267,6 @@ function main(){
                 inputEditTaskTitle.value = clickedTask.title;
                 inputEditTaskDescrip.value = clickedTask.description;
                 inputEditTaskDate.value = clickedTask.dueDate;
-                console.log(clickedTask.dueDate);
                 inputEditTaskPriority.value = clickedTask.priority;
 
                  dialogEditTask.showModal();
@@ -289,7 +288,6 @@ function main(){
 
             const inputYear = inputDate.slice(0, 4);
             const inputMonth = Number(inputDate.slice(5,7)) - 1;
-            console.log(inputMonth);
             const inputDay = inputDate.slice(8,10);
 
             const updateObject = {
@@ -329,7 +327,6 @@ function main(){
             const filterAll = event.target.closest(".sidebar-item.all");
             if(filterAll){
                 stateVariable.currentView = "all-tasks";
-                console.log(stateVariable.currentView);
                 taskHeading.textContent = "All";
                 refreshUI();
             }
