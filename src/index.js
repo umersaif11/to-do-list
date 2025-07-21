@@ -69,14 +69,33 @@ function main(){
 
     if(projectsModule.projects().length === 0){
 
-        projectsModule.createProject("Default");
-        projectsModule.switchProject(projectsModule.projects()[0].uniqueId);
-        projectsModule.putToDoIntoProject("Read javascript", "Read factory functions in detail", "2025-03-25", "normal");
-        projectsModule.putToDoIntoProject("clean floor", "with vaccum cleaner", "2025-07-15", "high");
-
         projectsModule.createProject("Education");
+        projectsModule.switchProject(projectsModule.projects()[0].uniqueId);
+        projectsModule.putToDoIntoProject("Read javascript", 
+            "Read factory functions in detail", "2025-03-25", "normal");
+        projectsModule.putToDoIntoProject("SOLID principles", 
+            "Watch some videos and read articles", null, "high");
+        projectsModule.putToDoIntoProject("DOM in detail", 
+            "Read documentation of advanced DOM manipulation techniques",
+            "2025-12-10", "low");    
+
+        projectsModule.createProject("Exercise");
         projectsModule.switchProject(projectsModule.projects()[1].uniqueId);
-        projectsModule.putToDoIntoProject("drink milk", "oatmilk 5%", "2025-07-07", "low");
+        projectsModule.putToDoIntoProject("Chest day", "Benchpress, dumbell press and push-ups", 
+            "2025-07-07", "high");
+        projectsModule.putToDoIntoProject("Walk", "Walk for 45 minutes and then sprint in last 5 minutes", 
+            null, "normal");
+        projectsModule.putToDoIntoProject("Wings day", "Dumbell pullover, deadlift, bent over row", 
+            "2025-12-30", "low");
+            
+        projectsModule.createProject("Maintenance");
+        projectsModule.switchProject(projectsModule.projects()[2].uniqueId);
+        projectsModule.putToDoIntoProject("Door lock", "Front door lock need to be replaced", 
+            "2025-03-03", "low");
+        projectsModule.putToDoIntoProject("Clean floor", "With vaccum cleaner", 
+            null, "high");
+        projectsModule.putToDoIntoProject("PC ssd", "With 2TB Nvme ssd 4th generation", 
+            "2025-12-15", "normal");    
 
         projectsModule.switchProject(projectsModule.projects()[0].uniqueId);
     }

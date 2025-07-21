@@ -804,6 +804,9 @@ background-repeat: no-repeat;
         bottom: 0;
         overflow-y: auto;
     }
+    #sidebar-container.close div.sidebar-item{
+        margin-bottom: 25px;
+    }
   #sidebar-container {
     max-width: 225px;
   }
