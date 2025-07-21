@@ -805,10 +805,10 @@ background-repeat: no-repeat;
         margin-bottom: 25px;
     }
   #sidebar-container {
-    max-width: 225px;
+    max-width: 250px;
   }
   #side-bar {
-    max-width: 225px;
+    max-width: 250px;
     width: 100%;
     scrollbar-color: #aaa transparent;
   }
