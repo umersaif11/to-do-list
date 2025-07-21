@@ -81,6 +81,7 @@ A single delegated listener had to handle various actions (selecting a project, 
 THe tasks of specific projects are getting display from 'projectsArray' in app-logic.js using displayTasks() in app-ui.js and filtered tasks are getting display using getTodayTasks(), getScheduleTasks() etc function from logi.js using displayTasks() in app-ui.js, So refreshUI() had to be modified for separate views. 
 
 The application would forget which view the user was in (e.g., "Today" vs. a specific project) after an update. This was solved by implementing a stateVariable to track the currentView, making the refreshUI() function "smart" enough to always re-render the correct view after any action.
+
 5) #### Modal Interaction Logic
 All logic for managing the application's dialogs was centralized in the controller. This included opening modals in response to user clicks, wiring up "Cancel" buttons, and handling form submission events to gather user input, call the logic module with that data, and then close the modal.
 
