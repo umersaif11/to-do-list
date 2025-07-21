@@ -783,6 +783,9 @@ background-repeat: no-repeat;
     margin-top: 80px;
 }
 @media (max-width: 768px) {
+    .test > div, ul#projects-list > div{
+        gap: 1rem;
+    }
     .project-item.active > .project-menu-svg{
     display: block;
   }
@@ -805,10 +808,10 @@ background-repeat: no-repeat;
         margin-bottom: 25px;
     }
   #sidebar-container {
-    max-width: 250px;
+    max-width: 225px;
   }
   #side-bar {
-    max-width: 250px;
+    max-width: 225px;
     width: 100%;
     scrollbar-color: #aaa transparent;
   }
