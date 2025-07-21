@@ -132,6 +132,15 @@ function projectsForTodo() {
     }
   };
 
+  const getTaskById = (taskId) => {
+    for(const project of projectsArray){
+        const task = project["todos"].find(t => t.id === taskId);
+
+        if(task) return task;
+    }
+    return null;
+  }
+
   const toggleCompleteStatus = (itemId) => {
     for (let i = 0; i < projectsArray.length; i++) {
       for (let j = 0; j < projectsArray[i]["todos"].length; j++) {
@@ -200,6 +209,7 @@ function projectsForTodo() {
     putToDoIntoProject,
     removeToDoFromProject,
     editToDo,
+    getTaskById,
     toggleCompleteStatus,
     getAllTasks,
     getTodayTasks,
