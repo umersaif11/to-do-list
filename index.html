@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <button id="hamburger" class="hamburger-btn" aria-label="Toggle menu">
+        <div class="sidebar-left"></div>
+    </button>
+    <div id="container">
+      <div id="sidebar-container">
+        <div id="sidebar">
+          <div class="task test">
+            <h4>Tasks</h4>
+            <div class="sidebar-item today">
+              <img
+                src="063ea1fccde2fac7797f.svg"
+                alt="today's svg"
+                height="25"
+                width="25"
+              />
+              <p>Today</p>
+              <p class="number today">0</p>
+            </div>
+            <div class="sidebar-item schedule">
+              <img
+                src="47ea9fec5224105ac1da.svg"
+                alt="schedule's svg"
+                height="25"
+                width="25"
+              />
+              <p>Scheduled</p>
+              <p class="number schedule">0</p>
+            </div>
+            <div class="sidebar-item overdue">
+              <img
+                src="63a3089091b1c11baffe.svg"
+                alt="overdue's svg"
+                height="25"
+                width="25"
+              />
+              <p>Overdue</p>
+              <p class="number overdue">0</p>
+            </div>
+            <div class="sidebar-item all">
+              <img
+                src="8ce8dfa205e16dcc3602.svg"
+                alt="all svg"
+                height="25"
+                width="25"
+              />
+              <p>All</p>
+              <p class="number all">0</p>
+            </div>
+          </div>
+          <div class="projects test">
+            <h4>Projects</h4>
+            <ul id="projects-list"></ul>
+            <div class="add-project"><span>+</span> Add Project</div>
+          </div>
+        </div>
+      </div>
+      <div id="main-content">
+        <p class="welcome">Welcome,</p>
+        <h2 class="current-project-title"></h2>
+        <p class="tasks-heading"></p>
+        <ul id="task-list"></ul>
+        <button class="add-task-btn" style="display: block;">+ Add Tasks</button>
+      </div>
+    </div>
+    <div class="overlay"></div>
+    <dialog id="project-dialog">
+        <form id="project-form" method="dialog">
+            <h2>New Project</h2>
+            <label for="projectTitle" id="project-title-label">
+                <input type="text" id="projectTitle" required="">
+            </label>
+            <menu class="menu">
+                <button type="submit" id="add-project-btn">Add</button>
+                <button id="cancel-project-btn" type="button">Cancel</button>
+            </menu>
+        </form>
+    </dialog>
+    <dialog id="todo-dialog">
+        <form id="todo-form" method="dialog">
+            <h2>Add Task</h2>
+            <label for="task-title-input" id="task-label">
+                Title
+                <input type="text" id="task-title-input" placeholder="The Odin Project" class="input" required="">
+            </label>
+            <label for="task-descrip-input" id="task-label">
+                Description
+                <textarea id="task-descrip-input" class="input" placeholder="Study OOP" required=""></textarea>
+            </label>
+            <label for="task-date-input" id="task-label">
+                Due Date
+                <input type="date" class="input" id="task-date-input">
+            </label>
+            <label for="priority-input" id="task-label">
+                Priority: 
+                <select id="priority-input" class="select">
+                    <option value="low">Low</option>
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                </select>
+            </label>
+            <menu class="task-dialog-menu">
+                <button type="submit" id="add-task-button">Add</button>
+                <button id="cancel-task-btn" type="button">Cancel</button>
+            </menu>
+        </form>
+    </dialog>
+     <dialog id="modifyTodoDialog">
+        <form id="modifyTodoForm" method="dialog">
+            <h2>Edit Task</h2>
+            <label for="editTask-title-input" class="modifyTask-label">
+                Title
+                <input type="text" id="editTask-title-input" class="modifyInput" required="">
+            </label>
+            <label for="editTask-descrip-input" class="modifyTask-label">
+                Description
+                <textarea id="editTask-descrip-input" class="modifyInput" required=""></textarea>
+            </label>
+            <label for="editTask-date-input" class="modifyTask-label">
+                Due Date
+                <input type="date" class="modifyInput" id="editTask-date-input">
+            </label>
+            <label for="editPriority-input" class="modifyTask-label">
+                Priority: 
+                <select id="editPriority-input" class="modifySelect">
+                    <option value="low">Low</option>
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                </select>
+            </label>
+            <menu class="modifyTodoMenu">
+                <button type="button" id="deleteTaskButton">Delete Task</button>
+                <button id="submit-editTask-btn" type="submit">Save Changes</button>
+            </menu>
+        </form>
+    </dialog>
+    <dialog id="modifyProjectDialog">
+        <form id="modifyProjectForm" method="dialog">
+            <h2>Rename Project</h2>
+            <label for="modifyProjectTitleInput" id="modifyProjectLabel">
+                <input type="text" id="modifyProjectTitleInput" required="">
+            </label>
+            <menu class="modifyProjectMenu">
+                <button type="button" id="closeDialogButton">Cancel</button>
+                <button type="submit" id="submitDialogButton">Confirm</button>
+            </menu>
+        </form>
+    </dialog>
+  </body>
+</html>
