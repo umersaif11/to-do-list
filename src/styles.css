@@ -783,9 +783,6 @@ background-repeat: no-repeat;
     margin-top: 80px;
 }
 @media (max-width: 768px) {
-    /* .overlay.active {
-    transform: translateY(0);
-  } */
     .project-item.active > .project-menu-svg{
     display: block;
   }
