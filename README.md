@@ -101,6 +101,40 @@ The initial impulse to have UI functions fetch their own data was refactored int
 
 ---
 
+## 🖥️ Screenshots
+
+Main UI with collapsed sidebar
+![alt text](screenshots/MainUICollapsedSidebar.png)
+
+Main UI with open sidebar
+![alt text](screenshots/UIwithOpenSideBar.png)
+
+Add Project
+![alt text](screenshots/AddProject.png)
+
+Rename/Delete Project Popup
+![alt text](screenshots/RenameAndDeleteProject.png)
+
+Rename Project
+![alt text](screenshots/RenameProject.png)
+
+Add Task
+![alt text](screenshots/AddTask.png)
+
+Edit and Delete Task
+![alt text](screenshots/Edit&DeleteTask.png)
+
+Checked Task
+![alt text](screenshots/CheckedTasks.png)
+
+Mobile View with collapsed sidebar
+![alt text](screenshots/MobileViewCollapsed.png)
+
+Mobile View with open sidebar
+![alt text](screenshots/MobileViewOpen.png)
+
+---
+
 ## 🏃📜 Run This Project Locally
 
 #### 1. Clone Repo
