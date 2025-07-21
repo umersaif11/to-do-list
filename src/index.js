@@ -220,14 +220,15 @@ function main(){
             const inputDate = inputTaskDate.value;
             let dueDate = null;
 
-            const inputYear = inputDate.slice(0, 4);
-            const inputMonth = Number(inputDate.slice(5,7)) - 1;
-            const inputDay = inputDate.slice(8,10);
+            if(inputDate){
+                const [inputYear, inputMonth, inputDay] = inputDate.split("-");
+                dueDate = new Date(inputYear, inputMonth - 1, inputDay);
+            }
 
             projectsModule.putToDoIntoProject(
                 inputTaskTitle.value,
                 inputDescripTitle.value,
-                new Date(inputYear, inputMonth, inputDay),
+                dueDate,
                 inputTaskPriority.value
             );
             stateVariable.currentView = "active-project";
@@ -250,9 +251,11 @@ function main(){
     if(editTask){
         editTask.addEventListener("click", (event) => {
             const taskItem = event.target.closest(".task-body");
+
             if(taskItem){
                 deleteTask.dataset.id = taskItem.dataset.id;
                 submitEditTask.dataset.id = taskItem.dataset.id;
+
                 let clickedTask = "";
 
                 for(let i = 0; i < projectsModule.projects().length; i++){
@@ -285,15 +288,20 @@ function main(){
 
         submitEditTask.addEventListener("click", (event) => {
             const inputDate = inputEditTaskDate.value;
+            let dueDate = null;
 
-            const inputYear = inputDate.slice(0, 4);
-            const inputMonth = Number(inputDate.slice(5,7)) - 1;
-            const inputDay = inputDate.slice(8,10);
+            if(inputDate){
+                const [inputYear, inputMonth, inputDay] = inputDate.split("-");
+                dueDate = new Date(inputYear, inputMonth - 1, inputDay);
+            } else{
+                const clickedTask = projectsModule.getTaskById(event.target.dataset.id);
+                dueDate = clickedTask.dueDate;
+            }
 
             const updateObject = {
             title: inputEditTaskTitle.value,
             description: inputEditTaskDescrip.value,
-            dueDate: new Date(inputYear, inputMonth, inputDay),
+            dueDate: dueDate,
             priority: inputEditTaskPriority.value
         }
             projectsModule.editToDo(event.target.dataset.id, updateObject);
