@@ -27,6 +27,7 @@ Effective use of the Module Pattern, closures, and object destructuring.
 Dynamic DOM creation and manipulation, event delegation to handle complex user interactions, and custom pop-up modals and menus.
 ### Responsive Design: 
 A collapsible sidebar and CSS media queries ensure a seamless experience on both desktop and mobile devices.
+
 ---
 
 ## 🎨 Key Features:
@@ -56,7 +57,7 @@ The application is structured with a clean separation of concerns, featuring a d
 ---
 
 ## ⛰️ Challenges Faced & Lessons Learned
-### Aplication Logic(``` app-logic.js ```):
+### Application Logic(``` app-logic.js ```):
 1) #### Data Structure
 How tasks would be stored in projects? And how should projects be stored? After experimenting and failing, came up with a structure where projects will be stored as objects in a array and tasks will be added as objects in an array where array is the value of specific project's object property("todos")
 
