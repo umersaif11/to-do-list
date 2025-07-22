@@ -9,6 +9,7 @@
 - Webpack
 - date-fns library
 - npm
+- ESLint
 - localStorage API
 
 ---
