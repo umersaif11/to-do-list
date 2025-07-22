@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Lumanosimo&family=Merienda:wght@300..900&family=Nothing+You+Could+Do&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lugrasimo&family=Lumanosimo&family=Merienda:wght@300..900&family=Nothing+You+Could+Do&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sorts+Mill+Goudy:ital@0;1&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
 }
 
 html,
@@ -14,7 +13,7 @@ body {
 }
 
 body {
-  font-family: 'Sorts+Mill+Goudy';
+  font-family: "Sorts+Mill+Goudy";
   background-color: #ebe6e6;
   padding: 0;
   position: relative;
@@ -84,7 +83,8 @@ ul#projects-list > div:first-of-type {
   font-size: 1.1rem;
 }
 
-.test > div , ul#projects-list > div {
+.test > div,
+ul#projects-list > div {
   margin-top: 15px;
   font-size: 1rem;
   display: flex;
@@ -110,37 +110,37 @@ ul#projects-list > div:focus {
   border-radius: 10px;
 }
 
-.project-menu-svg{
-    display: none;
+.project-menu-svg {
+  display: none;
 }
 .project-item:hover > .project-menu-svg,
 .project-item:focus > .project-menu-svg {
-    display: block;
+  display: block;
 }
 .project-item:hover > .project-menu-svg:hover,
-.project-item:focus > .project-menu-svg:hover{
-    border-radius: 18px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color:  	#808080;
-    transition: all 0.2s ease-in-out;
-    transform:scale(1.07);
-    cursor: pointer;
+.project-item:focus > .project-menu-svg:hover {
+  border-radius: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #808080;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.07);
+  cursor: pointer;
 }
 .project-item:hover > .num-of-project-items,
 .project-item:focus > .num-of-project-items {
-    display: none;
+  display: none;
 }
 
 div.add-project {
   font-size: 1rem;
-  font-family: 'lumanosimo';
+  font-family: "lumanosimo";
   padding: 0.2em 0.5em;
   height: 46px;
   border: 2px solid #808080;
   border-radius: 7px;
 }
-div.add-project:hover{
-    cursor: pointer;
+div.add-project:hover {
+  cursor: pointer;
 }
 
 .add-project span {
@@ -176,7 +176,7 @@ div.add-project:hover{
 
 .welcome {
   margin-left: auto;
-  font-family: 'lumanosimo';
+  font-family: "lumanosimo";
   font-size: 1.2rem;
   padding-right: 10px;
 }
@@ -195,7 +195,7 @@ div.add-project:hover{
   margin-bottom: 50px;
   font-size: 1.8rem;
   font-weight: 600;
-  font-family: 'lumanosimo';
+  font-family: "lumanosimo";
 }
 
 .task-item {
@@ -224,7 +224,7 @@ label.custom-checkbox-label {
   width: 100%;
   color: #bbb;
   font-size: 1rem;
-  font-family: 'lumanosimo';
+  font-family: "lumanosimo";
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -252,7 +252,9 @@ span.custom-checkbox-display {
   border-radius: 50%;
   cursor: pointer;
   position: relative;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
   flex-shrink: 0;
 }
 
@@ -262,7 +264,7 @@ span.custom-checkbox-display {
 }
 
 .task-checkbox:checked + .custom-checkbox-display::after {
-  content: '';
+  content: "";
   display: block;
   width: 3px;
   height: 8px;
@@ -287,8 +289,8 @@ span.custom-checkbox-display {
   flex-direction: column;
   gap: 5px;
 }
-.task-body:hover{
-   cursor: pointer;
+.task-body:hover {
+  cursor: pointer;
 }
 .task-details {
   display: flex;
@@ -317,7 +319,7 @@ span.custom-checkbox-display {
   text-wrap: wrap;
 }
 .first-para span:first-of-type {
-  font-family: 'lumanosimo', cursive;
+  font-family: "lumanosimo", cursive;
   font-size: 1.1em;
   font-weight: 500;
   /* white-space: nowrap; */
@@ -335,7 +337,7 @@ span.custom-checkbox-display {
   gap: 5px;
   border-radius: 12px;
   padding: 4px 8px;
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
   font-size: 0.85em;
   color: #333;
   flex-shrink: 0;
@@ -353,7 +355,7 @@ span.custom-checkbox-display {
 .first-para span:last-of-type {
   font-size: 0.85rem;
   color: #666;
-  font-family: 'lugrasimo', cursive;
+  font-family: "lugrasimo", cursive;
   flex-grow: 1;
   /* white-space: nowrap; */
   overflow: hidden;
@@ -367,7 +369,7 @@ span.custom-checkbox-display {
   background-color: peachpuff;
   border-radius: 6px;
   padding: 4px 8px;
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
   font-size: 0.85em;
   color: #444;
   margin-top: 5px;
@@ -457,7 +459,7 @@ label#project-title-label input#projectTitle:focus,
   padding: 10px 15px;
   border-radius: 12px;
   background-color: #222;
-  font-family: 'poppins';
+  font-family: "poppins";
   color: #fff;
   transition: background-color 0.3s ease;
   margin-top: auto;
@@ -619,7 +621,7 @@ label.modifyTask-label {
   width: 100%;
   color: #bbb;
   font-size: 1rem;
-  font-family: 'lumanosimo';
+  font-family: "lumanosimo";
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -712,7 +714,7 @@ textarea.modifyInput {
 #modifyProjectForm h2 {
   font-size: 1.4rem;
   text-align: center;
-  font-family: 'poppins';
+  font-family: "poppins";
 }
 
 .modifyProjectMenu {
@@ -756,12 +758,12 @@ textarea.modifyInput {
 }
 
 .hamburger-btn .sidebar-left {
-width: 25px;
-aspect-ratio: 1;
-background-image: url('./images/sidebar-left-svgrepo-com.svg');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+  width: 25px;
+  aspect-ratio: 1;
+  background-image: url("./images/sidebar-left-svgrepo-com.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .hamburger-btn:hover {
   background-color: rgba(51, 51, 51, 0.1);
@@ -769,44 +771,45 @@ background-repeat: no-repeat;
   border-radius: 10px;
 }
 #sidebar-container.close {
-    padding: 0px;
-    width: 80px;
-    overflow: hidden;
-    text-wrap: nowrap;
+  padding: 0px;
+  width: 80px;
+  overflow: hidden;
+  text-wrap: nowrap;
 }
 #sidebar-container.close h4,
 #sidebar-container.close p,
-#sidebar-container.close .projects.test{
-    display: none;
+#sidebar-container.close .projects.test {
+  display: none;
 }
 #sidebar-container.close .test > div:first-of-type {
-    margin-top: 80px;
+  margin-top: 80px;
 }
 @media (max-width: 768px) {
-    .test > div, ul#projects-list > div{
-        gap: 1rem;
-    }
-    .project-item.active > .project-menu-svg{
+  .test > div,
+  ul#projects-list > div {
+    gap: 1rem;
+  }
+  .project-item.active > .project-menu-svg {
     display: block;
   }
-   .project-item.active {
+  .project-item.active {
     background-color: #777;
     border-radius: 10px;
   }
   .project-item.active > .num-of-project-items {
     display: none;
-  } 
-    #main-content{
-        position: fixed;
-        left: 70px;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        overflow-y: auto;
-    }
-    #sidebar-container.close div.sidebar-item{
-        margin-bottom: 25px;
-    }
+  }
+  #main-content {
+    position: fixed;
+    left: 70px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+  }
+  #sidebar-container.close div.sidebar-item {
+    margin-bottom: 25px;
+  }
   #sidebar-container {
     max-width: 225px;
   }
@@ -819,10 +822,8 @@ background-repeat: no-repeat;
     margin-bottom: 50px;
     max-width: 250px;
   }
- 
 }
 @media (max-width: 600px) {
-  
   .task-item {
     border-radius: 20px;
     padding: 10px;
@@ -845,22 +846,20 @@ background-repeat: no-repeat;
     align-items: center;
   }
 }
-@media (max-width: 388px){
-   
-
+@media (max-width: 388px) {
   .task-item {
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 20px;
   }
-  .task-body:hover{
+  .task-body:hover {
     border-radius: 0px;
     transform: none;
     box-shadow: none;
     padding: none;
-    transition:none;
+    transition: none;
   }
-    .task-details {
+  .task-details {
     display: flex;
     flex-direction: column;
   }
@@ -874,11 +873,10 @@ background-repeat: no-repeat;
     justify-content: flex-start;
   }
 }
-@media (max-width: 348px){
-    .second-para {
+@media (max-width: 348px) {
+  .second-para {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 }
-

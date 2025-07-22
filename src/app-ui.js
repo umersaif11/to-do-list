@@ -1,21 +1,20 @@
-
 import iconImage from "./images/folder-file-svgrepo-com.svg";
 import projectMenu from "./images/menu-dots-svgrepo-com.svg";
 import { format } from "date-fns";
 
 function counterUncheckedTasks(tasksArray) {
-    let counter = 0;
-    for(let i = 0; i < tasksArray.length; i++){
-        if(tasksArray[i].completeStatus === false){
-            counter++;
-        }
+  let counter = 0;
+  for (let i = 0; i < tasksArray.length; i++) {
+    if (tasksArray[i].completeStatus === false) {
+      counter++;
     }
-    return counter;
+  }
+  return counter;
 }
 
 function renderProjects(projects, activeProjectID) {
   const projectsContainer = document.querySelector("ul#projects-list");
-  projectsContainer.innerHTML = '';
+  projectsContainer.innerHTML = "";
 
   for (let i = 0; i < projects.length; i++) {
     const projectDiv = document.createElement("div");
@@ -23,8 +22,8 @@ function renderProjects(projects, activeProjectID) {
     projectDiv.className = "project-item";
 
     // for mobile mode
-    if(projects[i].uniqueId === activeProjectID){
-        projectDiv.classList.add("active");
+    if (projects[i].uniqueId === activeProjectID) {
+      projectDiv.classList.add("active");
     }
 
     const iconImg = document.createElement("img");
@@ -62,13 +61,13 @@ function getRandomGradient() {
 
 function displayTasks(tasks) {
   const taskList = document.getElementById("task-list");
-  taskList.innerHTML = '';
+  taskList.innerHTML = "";
 
   for (let i = 0; i < tasks.length; i++) {
     const taskItem = document.createElement("li");
     taskItem.classList.add("task-item");
-    if(tasks[i].completeStatus === true){
-        taskItem.classList.add("completed");
+    if (tasks[i].completeStatus === true) {
+      taskItem.classList.add("completed");
     }
     taskItem.style.backgroundImage = getRandomGradient();
     taskList.appendChild(taskItem);
@@ -78,19 +77,19 @@ function displayTasks(tasks) {
     taskItem.appendChild(checkboxWrapper);
 
     const checkboxLabel = document.createElement("label");
-    checkboxLabel.classList.add('custom-checkbox-label');
+    checkboxLabel.classList.add("custom-checkbox-label");
     checkboxWrapper.appendChild(checkboxLabel);
 
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.classList.add('task-checkbox');
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("task-checkbox");
     checkbox.id = `${tasks[i].id}`;
     checkbox.checked = tasks[i].completeStatus;
     checkboxLabel.appendChild(checkbox);
 
-    const customCheckboxDisplay = document.createElement('span');
+    const customCheckboxDisplay = document.createElement("span");
     customCheckboxDisplay.dataset.id = `${tasks[i].id}`;
-    customCheckboxDisplay.classList.add('custom-checkbox-display');
+    customCheckboxDisplay.classList.add("custom-checkbox-display");
     checkboxLabel.appendChild(customCheckboxDisplay);
 
     const taskBody = document.createElement("div");
@@ -122,14 +121,14 @@ function displayTasks(tasks) {
 
     const prioritySpan = document.createElement("span");
     prioritySpan.textContent = `${tasks[i].priority}`;
-    if(prioritySpan.textContent.toUpperCase() === 'HIGH'){
-        prioritySpan.setAttribute("style", "background-color: #FA8072");
-    } 
-    if(prioritySpan.textContent.toUpperCase() === 'LOW'){
-        prioritySpan.setAttribute("style", "background-color: lightsteelblue;");
+    if (prioritySpan.textContent.toUpperCase() === "HIGH") {
+      prioritySpan.setAttribute("style", "background-color: #FA8072");
     }
-    if(prioritySpan.textContent.toUpperCase() === 'NORMAL'){
-        prioritySpan.setAttribute("style", "background-color: #F0E68C;");
+    if (prioritySpan.textContent.toUpperCase() === "LOW") {
+      prioritySpan.setAttribute("style", "background-color: lightsteelblue;");
+    }
+    if (prioritySpan.textContent.toUpperCase() === "NORMAL") {
+      prioritySpan.setAttribute("style", "background-color: #F0E68C;");
     }
     prioritySpan.classList.add("priority-pill");
     secondPara.appendChild(prioritySpan);
@@ -140,6 +139,5 @@ function displayTasks(tasks) {
     secondPara.appendChild(dateSpan);
   }
 }
-
 
 export { renderProjects, displayTasks, counterUncheckedTasks };

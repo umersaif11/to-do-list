@@ -1,18 +1,24 @@
 import { isToday, isFuture, isBefore, startOfToday } from "date-fns";
 
 function toDoFunction() {
-  const validateTitle = (title) => (title = typeof title === "string" ? title : "no title");
+  const validateTitle = (title) =>
+    (title = typeof title === "string" ? title : "no title");
 
-  const validateDescription = (description) => (description = typeof description === "string" ? description : "no description");
+  const validateDescription = (description) =>
+    (description =
+      typeof description === "string" ? description : "no description");
 
-  const validateDate = (dueDate) => (dueDate = dueDate ? new Date(dueDate) : new Date());
+  const validateDate = (dueDate) =>
+    (dueDate = dueDate ? new Date(dueDate) : new Date());
 
   const validatePriority = (priority) =>
-    (priority = priority ?
-      (priority.toUpperCase() === "HIGH" || priority.toUpperCase() === "NORMAL" || priority.toUpperCase() === "LOW" ?
-        priority :
-        "Normal") :
-      null);
+    (priority = priority
+      ? priority.toUpperCase() === "HIGH" ||
+        priority.toUpperCase() === "NORMAL" ||
+        priority.toUpperCase() === "LOW"
+        ? priority
+        : "Normal"
+      : null);
 
   const toDoItem = (title, description, dueDate, priority) => {
     title = validateTitle(title);
@@ -36,18 +42,20 @@ function toDoFunction() {
 }
 
 function projectsForTodo() {
-  const projectsArrayJSON = JSON.parse(localStorage.getItem("projectsArrayJSON"));
+  const projectsArrayJSON = JSON.parse(
+    localStorage.getItem("projectsArrayJSON"),
+  );
   const toDo = toDoFunction();
   let projectsArray = projectsArrayJSON === null ? [] : projectsArrayJSON;
 
-//   const convertStringdatToObject = () => {
-//     projectsArray.forEach((project) => {
-//         project["todos"].forEach((task) => {
-//             task.dueDate = new Date(task.dueDate);
-//         })
-//     })
-//   };
-//   convertStringdatToObject();
+  //   const convertStringdatToObject = () => {
+  //     projectsArray.forEach((project) => {
+  //         project["todos"].forEach((task) => {
+  //             task.dueDate = new Date(task.dueDate);
+  //         })
+  //     })
+  //   };
+  //   convertStringdatToObject();
 
   const projects = () => projectsArray;
 
@@ -58,13 +66,15 @@ function projectsForTodo() {
     localStorage.setItem("projectsArrayJSON", JSON.stringify(projectsArray));
   };
 
-  let activeProjectId = projectsArray.length > 0 ? projectsArray[0].uniqueId : null;
+  let activeProjectId =
+    projectsArray.length > 0 ? projectsArray[0].uniqueId : null;
 
   const switchProject = (projectUniqueId) => {
-     activeProjectId = projectUniqueId;
+    activeProjectId = projectUniqueId;
   };
 
-  const getActiveProject = () => projectsArray.find(p => p.uniqueId === activeProjectId);
+  const getActiveProject = () =>
+    projectsArray.find((p) => p.uniqueId === activeProjectId);
 
   const renameProject = (projectId, newProjectName) => {
     for (let i = 0; i < projectsArray.length; i++) {
@@ -88,9 +98,12 @@ function projectsForTodo() {
     for (let i = 0; i < projectsArray.length; i++) {
       if (projectsArray[i].uniqueId === getActiveProject().uniqueId) {
         projectsArray[i]["todos"].push(
-          toDo.toDoItem(title, description, dueDate, priority)
+          toDo.toDoItem(title, description, dueDate, priority),
         );
-        localStorage.setItem("projectsArrayJSON", JSON.stringify(projectsArray));
+        localStorage.setItem(
+          "projectsArrayJSON",
+          JSON.stringify(projectsArray),
+        );
       }
     }
   };
@@ -100,7 +113,10 @@ function projectsForTodo() {
       for (let j = 0; j < projectsArray[i]["todos"].length; j++) {
         if (projectsArray[i]["todos"][j].id === itemIdtoRemove) {
           projectsArray[i]["todos"].splice(j, 1);
-          localStorage.setItem("projectsArrayJSON", JSON.stringify(projectsArray));
+          localStorage.setItem(
+            "projectsArrayJSON",
+            JSON.stringify(projectsArray),
+          );
         }
       }
     }
@@ -126,42 +142,47 @@ function projectsForTodo() {
             priority = toDo.validatePriority(priority);
             projectsArray[i]["todos"][j].priority = priority;
           }
-          localStorage.setItem("projectsArrayJSON", JSON.stringify(projectsArray));
+          localStorage.setItem(
+            "projectsArrayJSON",
+            JSON.stringify(projectsArray),
+          );
         }
       }
     }
   };
 
   const getTaskById = (taskId) => {
-    for(const project of projectsArray){
-        const task = project["todos"].find(t => t.id === taskId);
+    for (const project of projectsArray) {
+      const task = project["todos"].find((t) => t.id === taskId);
 
-        if(task) return task;
+      if (task) return task;
     }
     return null;
-  }
+  };
 
   const toggleCompleteStatus = (itemId) => {
     for (let i = 0; i < projectsArray.length; i++) {
       for (let j = 0; j < projectsArray[i]["todos"].length; j++) {
         if (projectsArray[i]["todos"][j].id === itemId) {
-          projectsArray[i]["todos"][j].completeStatus = !projectsArray[i]["todos"][j].completeStatus;
-          localStorage.setItem("projectsArrayJSON", JSON.stringify(projectsArray));
+          projectsArray[i]["todos"][j].completeStatus =
+            !projectsArray[i]["todos"][j].completeStatus;
+          localStorage.setItem(
+            "projectsArrayJSON",
+            JSON.stringify(projectsArray),
+          );
         }
       }
     }
   };
 
-   const getAllTasks = () => {
+  const getAllTasks = () => {
     const allTasks = [];
     for (let i = 0; i < projectsArray.length; i++) {
-        for(let j = 0; j < projectsArray[i]["todos"].length; j++){
-
-            if(projectsArray[i]["todos"][j].completeStatus === false){
-
-                allTasks.push(projectsArray[i]["todos"][j]); 
-            }
+      for (let j = 0; j < projectsArray[i]["todos"].length; j++) {
+        if (projectsArray[i]["todos"][j].completeStatus === false) {
+          allTasks.push(projectsArray[i]["todos"][j]);
         }
+      }
     }
     return allTasks;
   };
@@ -214,7 +235,7 @@ function projectsForTodo() {
     getAllTasks,
     getTodayTasks,
     getScheduledTasks,
-    getOverdueTasks
+    getOverdueTasks,
   };
 }
 export { toDoFunction, projectsForTodo };
