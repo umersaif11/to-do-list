@@ -10,6 +10,7 @@
 - date-fns library
 - npm
 - ESLint
+- Prettier
 - localStorage API
 
 ---
