@@ -6,11 +6,11 @@
 - JavaScript ES6+
 - HTML5
 - CSS3
-- Webpack
-- date-fns library
 - npm
-- ESLint
-- Prettier
+- Webpack - Build tool
+- date-fns - Library
+- ESLint - Linter
+- Prettier - Code Formatter
 - localStorage API
 
 ---
